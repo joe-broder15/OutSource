@@ -9,4 +9,5 @@ target 'OutSource' do
   pod 'Material', '~> 1.0'
   pod ‘Firebase’
   pod 'Firebase/Auth'
+  pod 'Firebase/Database'
 end

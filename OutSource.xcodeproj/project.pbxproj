@@ -17,6 +17,7 @@
 		58C3F8681D34574600C98EF8 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C3F8671D34574600C98EF8 /* MapVC.swift */; };
 		58C3F86A1D35585F00C98EF8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C3F8691D35585F00C98EF8 /* User.swift */; };
 		58C3F86D1D355F3900C98EF8 /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C3F86C1D355F3900C98EF8 /* FirebaseHelper.swift */; };
+		58C3F8711D358BC100C98EF8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 58C3F8701D358BC100C98EF8 /* GoogleService-Info.plist */; };
 		BEF97C7C07A572211FC05143 /* Pods_OutSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC4404D418877CAFC800B529 /* Pods_OutSource.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		58C3F8671D34574600C98EF8 /* MapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		58C3F8691D35585F00C98EF8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		58C3F86C1D355F3900C98EF8 /* FirebaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseHelper.swift; sourceTree = "<group>"; };
+		58C3F8701D358BC100C98EF8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BE49FC0520316C2CDEFB937C /* Pods-OutSource.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OutSource.release.xcconfig"; path = "Pods/Target Support Files/Pods-OutSource/Pods-OutSource.release.xcconfig"; sourceTree = "<group>"; };
 		CF349FAEDD62CD0022043EDD /* Pods-OutSource.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OutSource.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OutSource/Pods-OutSource.debug.xcconfig"; sourceTree = "<group>"; };
 		FC4404D418877CAFC800B529 /* Pods_OutSource.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OutSource.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +91,7 @@
 				58C3F84D1D341A0100C98EF8 /* Main.storyboard */,
 				58C3F8501D341A0100C98EF8 /* Assets.xcassets */,
 				58C3F8521D341A0100C98EF8 /* LaunchScreen.storyboard */,
+				58C3F8701D358BC100C98EF8 /* GoogleService-Info.plist */,
 				58C3F8551D341A0100C98EF8 /* Info.plist */,
 			);
 			path = OutSource;
@@ -199,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				58C3F8541D341A0100C98EF8 /* LaunchScreen.storyboard in Resources */,
+				58C3F8711D358BC100C98EF8 /* GoogleService-Info.plist in Resources */,
 				58C3F8511D341A0100C98EF8 /* Assets.xcassets in Resources */,
 				58C3F84F1D341A0100C98EF8 /* Main.storyboard in Resources */,
 			);
