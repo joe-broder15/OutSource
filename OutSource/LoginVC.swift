@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Material
+import Firebase
 
 class LoginVC: UIViewController, TextFieldDelegate {
     

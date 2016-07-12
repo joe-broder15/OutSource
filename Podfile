@@ -8,4 +8,5 @@ target 'OutSource' do
   # Pods for OutSource
   pod 'Material', '~> 1.0'
   pod ‘Firebase’
+  pod 'Firebase/Auth'
 end
