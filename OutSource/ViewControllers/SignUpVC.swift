@@ -48,20 +48,26 @@ class SignUpVC: UIViewController {
                 //sign into the user we just created
                 FIRAuth.auth()?.signInWithEmail(email!, password: password!) { (user, error) in
                     
-                    //update the username of the current user in auth
-                    let currentUser = FIRAuth.auth()?.currentUser
+                    if let error = error {
+                        return
+                        
+                    } else {
+                        
+                        //update the username of the current user in auth
+                        let currentUser = FIRAuth.auth()?.currentUser
 
-                    //here in the callback we will create the user in code as well
-                    let userData: Dictionary<String, String>  = ["email": (currentUser?.email!)!, "password": password!, "username": userName!]//, "interests":["placeholder"]]
+                        //here in the callback we will create the user in code as well
+                        let userData: Dictionary<String, String>  = ["email": (currentUser?.email!)!, "password": password!, "username": userName!]
                     
-                    //we add that user object to the database
-                    self.rootRef.child("Users").child((currentUser?.uid)!).setValue(userData)
-                    print(userData)
+                        //we add that user object to the database
+                        self.rootRef.child("Users").child((currentUser?.uid)!).setValue(userData)
+                        print(userData)
+                    }
                     
                 }
             }
             
-            performSegueWithIdentifier("toInterestsSegue", sender: self)
+            performSegueWithIdentifier("signUpToMapSegue", sender: self)
             
         } else {
             return

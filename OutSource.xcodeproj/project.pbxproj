@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		586C092C1D36B5740096952E /* InterestSelectorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586C092B1D36B5740096952E /* InterestSelectorVC.swift */; };
 		586C092F1D36E0AC0096952E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 586C092D1D36E0AC0096952E /* Main.storyboard */; };
 		58C3F84A1D341A0100C98EF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C3F8491D341A0100C98EF8 /* AppDelegate.swift */; };
 		58C3F8511D341A0100C98EF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58C3F8501D341A0100C98EF8 /* Assets.xcassets */; };
@@ -22,7 +21,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		586C092B1D36B5740096952E /* InterestSelectorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestSelectorVC.swift; sourceTree = "<group>"; };
 		586C092E1D36E0AC0096952E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		58C3F8461D341A0100C98EF8 /* OutSource.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OutSource.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58C3F8491D341A0100C98EF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -111,7 +109,6 @@
 				58C3F85B1D34360A00C98EF8 /* LoginVC.swift */,
 				58C3F8631D34530600C98EF8 /* SignUpVC.swift */,
 				58C3F8671D34574600C98EF8 /* MapVC.swift */,
-				586C092B1D36B5740096952E /* InterestSelectorVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -267,7 +264,6 @@
 				58C3F8681D34574600C98EF8 /* MapVC.swift in Sources */,
 				58C3F8641D34530600C98EF8 /* SignUpVC.swift in Sources */,
 				58C3F86A1D35585F00C98EF8 /* User.swift in Sources */,
-				586C092C1D36B5740096952E /* InterestSelectorVC.swift in Sources */,
 				58C3F84A1D341A0100C98EF8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

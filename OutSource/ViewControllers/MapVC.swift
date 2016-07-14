@@ -25,6 +25,12 @@ class MapVC: UIViewController {
     // Height for FlatButtons.
     let height: CGFloat = 36
     
+    /// Reference for containerView.
+    private var containerView: UIView!
+    
+    /// Reference for SearchBar.
+    private var searchBar: SearchBar!
+    
     //The map view
     @IBOutlet weak var map: MKMapView!
     
@@ -33,6 +39,9 @@ class MapVC: UIViewController {
         
         //prepares the menu view
         prepareMenuViewExample()
+        prepareContainerView()
+        prepareSearchBar()
+        hideKeyboardWhenTappedAround()
         
     }
     
@@ -84,7 +93,6 @@ extension MapVC {
         let btn2: FabButton = FabButton()
         btn2.depth = .None
         btn2.tintColor = MaterialColor.blue.accent3
-        btn2.pulseColor = MaterialColor.grey.base
         btn2.borderColor = MaterialColor.blue.accent3
         btn2.backgroundColor = MaterialColor.green.accent1
         btn2.borderWidth = 1
@@ -98,7 +106,6 @@ extension MapVC {
         let btn3: FabButton = FabButton()
         btn3.depth = .None
         btn3.tintColor = MaterialColor.blue.accent3
-        btn3.pulseColor = MaterialColor.grey.base
         btn3.borderColor = MaterialColor.blue.accent3
         btn3.backgroundColor = MaterialColor.blue.accent1
         btn3.borderWidth = 1
@@ -112,7 +119,6 @@ extension MapVC {
         let btn4: FabButton = FabButton()
         btn4.depth = .None
         btn4.tintColor = MaterialColor.blue.accent3
-        btn4.pulseColor = MaterialColor.grey.base
         btn4.borderColor = MaterialColor.blue.accent3
         btn4.backgroundColor = MaterialColor.yellow.accent1
         btn4.borderWidth = 1
@@ -126,7 +132,6 @@ extension MapVC {
         let btn5: FabButton = FabButton()
         btn5.depth = .None
         btn5.tintColor = MaterialColor.blue.accent3
-        btn5.pulseColor = MaterialColor.grey.base
         btn5.borderColor = MaterialColor.blue.accent3
         btn5.backgroundColor = MaterialColor.pink.accent1
         btn5.borderWidth = 1
@@ -143,4 +148,48 @@ extension MapVC {
         view.layout(menuView).width(diameter).height(diameter).bottom(16).right(5)
     }
 
+}
+
+
+//MARK: Tap out of keyboard
+extension MapVC {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
+//MARK: Search Bar
+extension MapVC {
+    /// Prepares the containerView.
+    private func prepareContainerView() {
+        containerView = UIView()
+        view.layout(containerView).edges(top: 20, left: 20, right: 20)
+    }
+    
+    /// Prepares the toolbar
+    private func prepareSearchBar() {
+        searchBar = SearchBar()
+        containerView.addSubview(searchBar)
+        
+        let image: UIImage? = MaterialIcon.cm.moreVertical
+        
+        // More button.
+        let moreButton: IconButton = IconButton()
+        moreButton.pulseColor = MaterialColor.grey.base
+        moreButton.tintColor = MaterialColor.grey.darken4
+        moreButton.setImage(image, forState: .Normal)
+        moreButton.setImage(image, forState: .Highlighted)
+        
+        /*
+         To lighten the status bar - add the
+         "View controller-based status bar appearance = NO"
+         to your info.plist file and set the following property.
+         */
+        searchBar.leftControls = [moreButton]
+    }
 }
