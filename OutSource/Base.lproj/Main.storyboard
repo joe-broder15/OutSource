@@ -47,7 +47,7 @@
                                     <constraint firstAttribute="width" constant="52" id="4pf-rA-mqf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="Email: "/>
@@ -57,7 +57,7 @@
                                 <rect key="frame" x="165" y="320" width="270" height="30"/>
                                 <state key="normal" title="Log In"/>
                                 <connections>
-                                    <segue destination="b40-p3-lzi" kind="showDetail" id="AhU-fD-Uml"/>
+                                    <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O5L-Ny-EL1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ubJ-xo-aHM" customClass="RaisedButton" customModule="Material">
@@ -71,7 +71,7 @@
                                 <rect key="frame" x="300" y="358" width="135" height="30"/>
                                 <state key="normal" title="Sign Up"/>
                                 <connections>
-                                    <segue destination="6OG-ig-VCq" kind="presentation" id="Huu-wC-5G7"/>
+                                    <segue destination="6OG-ig-VCq" kind="presentation" identifier="loginToSignUpSegue" id="Huu-wC-5G7"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntz-15-sjF">
@@ -81,12 +81,19 @@
                                     <constraint firstAttribute="height" constant="21" id="fyd-Yu-5RD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="Password: "/>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iZu-HG-Jpd">
+                                <rect key="frame" x="277" y="405" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="43t-u7-cds" kind="presentation" id="zNw-Do-n2O"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -105,12 +112,15 @@
                             <constraint firstItem="5ZH-eW-Hpg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kHY-D9-qBg"/>
                             <constraint firstItem="ntz-15-sjF" firstAttribute="leading" secondItem="cpO-mF-eUi" secondAttribute="leading" id="maN-pB-pf7"/>
                             <constraint firstItem="Mqd-zn-OMp" firstAttribute="leading" secondItem="ubJ-xo-aHM" secondAttribute="leading" id="uaZ-qs-MUC"/>
+                            <constraint firstItem="iZu-HG-Jpd" firstAttribute="top" secondItem="TLb-nX-aFr" secondAttribute="bottom" constant="17" id="wW9-9T-od8"/>
+                            <constraint firstItem="iZu-HG-Jpd" firstAttribute="centerX" secondItem="Mqd-zn-OMp" secondAttribute="centerX" id="wf2-dM-EgN"/>
                             <constraint firstItem="Mqd-zn-OMp" firstAttribute="trailing" secondItem="TLb-nX-aFr" secondAttribute="trailing" id="yXx-M1-ezx"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="emailField" destination="5ZH-eW-Hpg" id="Vpj-M4-4JS"/>
                         <outlet property="pwField" destination="cpO-mF-eUi" id="l29-Ta-fdC"/>
+                        <segue destination="b40-p3-lzi" kind="presentation" identifier="signInToMapSegue" id="Zc6-QD-XUW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -147,7 +157,7 @@
                                     <constraint firstAttribute="width" constant="93" id="zQb-Ed-zi8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="Password: "/>
@@ -160,7 +170,7 @@
                                     <constraint firstAttribute="height" constant="21" id="VZM-sR-Q2s"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="Email: "/>
@@ -201,7 +211,7 @@
                                     <constraint firstAttribute="width" constant="111" id="cvT-Ts-lj7"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="Password: "/>
@@ -244,12 +254,33 @@
                         <outlet property="displayNameTextField" destination="biG-Ob-oGm" id="DCT-JD-inr"/>
                         <outlet property="emailTextField" destination="c7F-IU-24C" id="jw6-Hn-Wso"/>
                         <outlet property="passwordTextField" destination="7X4-1b-hfg" id="gDW-h6-9LZ"/>
-                        <segue destination="b40-p3-lzi" kind="presentation" identifier="signUpToMapSegue" id="JR8-hc-j4i"/>
+                        <segue destination="43t-u7-cds" kind="presentation" identifier="toInterestsSegue" id="1hg-1A-God"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wjR-nq-7IF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1086" y="207"/>
+            <point key="canvasLocation" x="1030" y="399"/>
+        </scene>
+        <!--Interest SelectorVC-->
+        <scene sceneID="ZLE-cK-dzB">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aEr-rQ-mGW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="43t-u7-cds" customClass="InterestSelectorVC" customModule="OutSource" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ayW-L6-Qvw"/>
+                        <viewControllerLayoutGuide type="bottom" id="I8X-Un-fZh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MGY-sr-xA4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="b40-p3-lzi" kind="show" id="9Ra-KC-77O"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1710" y="399"/>
         </scene>
         <!--MapVC-->
         <scene sceneID="oVY-1s-WgY">
@@ -277,33 +308,15 @@
                     </view>
                     <connections>
                         <outlet property="map" destination="hl8-gF-COp" id="Umo-kY-VhK"/>
-                        <segue destination="vxE-92-Yy3" kind="presentation" identifier="mapToAddSegue" id="flA-Un-DEF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WJn-eV-QAk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1086" y="962"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="hgz-4J-316">
-            <objects>
-                <viewController id="vxE-92-Yy3" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="E1D-U7-vUF"/>
-                        <viewControllerLayoutGuide type="bottom" id="otx-ES-zrl"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="sJl-76-dRj">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aeC-eJ-spm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="485" y="1626"/>
+            <point key="canvasLocation" x="1030" y="1164"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="JR8-hc-j4i"/>
+        <segue reference="9Ra-KC-77O"/>
+        <segue reference="zNw-Do-n2O"/>
     </inferredMetricsTieBreakers>
 </document>

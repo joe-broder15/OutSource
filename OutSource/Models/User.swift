@@ -8,16 +8,18 @@
 
 import Foundation
 
-class User {
+struct User {
     var email: String
     var password: String
     var userName: String
+    var interests: [String]?
     
-    init(email: String, password: String, userName: String) {
+    init(email: String, password: String, userName: String, interests: [String]?) {
         
         self.email = email
         self.password = password
         self.userName = userName
+        self.interests = interests
     }
-    
+
 }
