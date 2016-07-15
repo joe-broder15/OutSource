@@ -26,7 +26,7 @@ class LoginVC: UIViewController, TextFieldDelegate {
     @IBAction func loginButtonPressed(sender: RaisedButton) {
         FIRAuth.auth()?.signInWithEmail(self.emailField.text!, password: self.pwField.text!) { (user, error) in
             
-            if let error = error {
+            if error != nil {
                 print("ERROR CODE 2: CREDENTIALS NOT RECOGNIZED")
             } else {
                 self.performSegueWithIdentifier("signInToMapSegue", sender: self)

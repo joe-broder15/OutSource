@@ -48,7 +48,7 @@ class SignUpVC: UIViewController {
                 //sign into the user we just created
                 FIRAuth.auth()?.signInWithEmail(email!, password: password!) { (user, error) in
                     
-                    if let error = error {
+                    if error != nil {
                         return
                         
                     } else {

@@ -21,5 +21,7 @@ struct User {
         self.userName = userName
         self.interests = interests
     }
+    
+    
 
 }

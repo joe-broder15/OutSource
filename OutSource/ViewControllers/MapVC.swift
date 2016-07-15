@@ -10,8 +10,10 @@ import Foundation
 import MapKit
 import Material
 import UIKit
+import CoreLocation
 
-class MapVC: UIViewController {
+class MapVC: UIViewController, CLLocationManagerDelegate {
+    
     //THESE ARE FOR THE MENU
     // MenuView reference.
     private lazy var menuView: MenuView = MenuView()
@@ -25,25 +27,40 @@ class MapVC: UIViewController {
     // Height for FlatButtons.
     let height: CGFloat = 36
     
-    /// Reference for containerView.
-    private var containerView: UIView!
-    
-    /// Reference for SearchBar.
-    private var searchBar: SearchBar!
-    
     //The map view
     @IBOutlet weak var map: MKMapView!
     
-    override func viewDidLoad() {
+    var locationManager: CLLocationManager!
+    
+    override func viewDidLoad(){
         super.viewDidLoad()
         
-        //prepares the menu view
-        prepareMenuViewExample()
-        prepareContainerView()
-        prepareSearchBar()
+        if (CLLocationManager.locationServicesEnabled()){
+            locationManager = CLLocationManager()
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.requestWhenInUseAuthorization()
+            locationManager.startUpdatingLocation()
+            
+            map.showsUserLocation = true
+        }
+        
+        prepareMenuView()
         hideKeyboardWhenTappedAround()
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
+        
+        let location = locations.last! as CLLocation
+        
+        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.31, longitudeDelta: 0.31))
+        
+        self.map.setRegion(region, animated: true)
+
         
     }
+    
     
 }
 
@@ -73,14 +90,14 @@ extension MapVC {
     
     
     /// Prepares the MenuView example.
-    private func prepareMenuViewExample() {
+    private func prepareMenuView() {
         
         //MARK: first button
         var image: UIImage? = UIImage(named: "ic_add_white")?.imageWithRenderingMode(.AlwaysTemplate)
         let btn1: FabButton = FabButton()
         btn1.depth = .None
         btn1.tintColor = MaterialColor.blue.accent3
-        btn1.borderColor = MaterialColor.blue.accent3
+        btn1.borderColor = MaterialColor.white
         btn1.backgroundColor = MaterialColor.red.accent1
         btn1.borderWidth = 1
         btn1.setImage(image, forState: .Normal)
@@ -93,7 +110,7 @@ extension MapVC {
         let btn2: FabButton = FabButton()
         btn2.depth = .None
         btn2.tintColor = MaterialColor.blue.accent3
-        btn2.borderColor = MaterialColor.blue.accent3
+        btn2.borderColor = MaterialColor.white
         btn2.backgroundColor = MaterialColor.green.accent1
         btn2.borderWidth = 1
         btn2.setImage(image, forState: .Normal)
@@ -106,7 +123,7 @@ extension MapVC {
         let btn3: FabButton = FabButton()
         btn3.depth = .None
         btn3.tintColor = MaterialColor.blue.accent3
-        btn3.borderColor = MaterialColor.blue.accent3
+        btn3.borderColor = MaterialColor.white
         btn3.backgroundColor = MaterialColor.blue.accent1
         btn3.borderWidth = 1
         btn3.setImage(image, forState: .Normal)
@@ -119,7 +136,7 @@ extension MapVC {
         let btn4: FabButton = FabButton()
         btn4.depth = .None
         btn4.tintColor = MaterialColor.blue.accent3
-        btn4.borderColor = MaterialColor.blue.accent3
+        btn4.borderColor = MaterialColor.white
         btn4.backgroundColor = MaterialColor.yellow.accent1
         btn4.borderWidth = 1
         btn4.setImage(image, forState: .Normal)
@@ -132,7 +149,7 @@ extension MapVC {
         let btn5: FabButton = FabButton()
         btn5.depth = .None
         btn5.tintColor = MaterialColor.blue.accent3
-        btn5.borderColor = MaterialColor.blue.accent3
+        btn5.borderColor = MaterialColor.white
         btn5.backgroundColor = MaterialColor.pink.accent1
         btn5.borderWidth = 1
         btn5.setImage(image, forState: .Normal)
@@ -154,7 +171,7 @@ extension MapVC {
 //MARK: Tap out of keyboard
 extension MapVC {
     func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MapVC.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
     
@@ -163,33 +180,4 @@ extension MapVC {
     }
 }
 
-//MARK: Search Bar
-extension MapVC {
-    /// Prepares the containerView.
-    private func prepareContainerView() {
-        containerView = UIView()
-        view.layout(containerView).edges(top: 20, left: 20, right: 20)
-    }
-    
-    /// Prepares the toolbar
-    private func prepareSearchBar() {
-        searchBar = SearchBar()
-        containerView.addSubview(searchBar)
-        
-        let image: UIImage? = MaterialIcon.cm.moreVertical
-        
-        // More button.
-        let moreButton: IconButton = IconButton()
-        moreButton.pulseColor = MaterialColor.grey.base
-        moreButton.tintColor = MaterialColor.grey.darken4
-        moreButton.setImage(image, forState: .Normal)
-        moreButton.setImage(image, forState: .Highlighted)
-        
-        /*
-         To lighten the status bar - add the
-         "View controller-based status bar appearance = NO"
-         to your info.plist file and set the following property.
-         */
-        searchBar.leftControls = [moreButton]
-    }
-}
+
