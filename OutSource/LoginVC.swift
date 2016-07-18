@@ -13,6 +13,8 @@ import Firebase
 
 class LoginVC: UIViewController, TextFieldDelegate {
     
+    let firebaseHelper = FirebaseHelper()
+    
     @IBOutlet weak var emailField: TextField!
     @IBOutlet weak var pwField: TextField!
     
@@ -24,14 +26,15 @@ class LoginVC: UIViewController, TextFieldDelegate {
         
     }
     @IBAction func loginButtonPressed(sender: RaisedButton) {
-        FIRAuth.auth()?.signInWithEmail(self.emailField.text!, password: self.pwField.text!) { (user, error) in
-            
+        //logs in the user
+        FIRAuth.auth()?.signInWithEmail(emailField.text!, password: emailField.text!) { (user, error) in
             if error != nil {
                 print("ERROR CODE 2: CREDENTIALS NOT RECOGNIZED")
+                return
             } else {
                 self.performSegueWithIdentifier("signInToMapSegue", sender: self)
             }
-            
         }
     }
 }
+

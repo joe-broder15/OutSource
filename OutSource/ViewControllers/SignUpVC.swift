@@ -17,7 +17,7 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var passwordTextField: TextField!
     @IBOutlet weak var displayNameTextField: TextField!
     
-    let rootRef = FIRDatabase.database().referenceFromURL("https://out-source-d85e3.firebaseio.com/")
+    let firebaseHelper = FirebaseHelper()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,35 +42,33 @@ class SignUpVC: UIViewController {
         //if there is text in all feilds, make a new user
         if password != nil && userName != nil && email != nil {
             
+            //creates a new user object in auth and database
             //This is the part where we create the user in authentication
             FIRAuth.auth()?.createUserWithEmail(email!, password: password!) { (user, error) in
-                
+                    
                 //sign into the user we just created
                 FIRAuth.auth()?.signInWithEmail(email!, password: password!) { (user, error) in
-                    
+                        
                     if error != nil {
                         return
-                        
                     } else {
-                        
+                            
                         //update the username of the current user in auth
                         let currentUser = FIRAuth.auth()?.currentUser
-
+                            
                         //here in the callback we will create the user in code as well
                         let userData: Dictionary<String, String>  = ["email": (currentUser?.email!)!, "password": password!, "username": userName!]
-                    
+                            
                         //we add that user object to the database
-                        self.rootRef.child("Users").child((currentUser?.uid)!).setValue(userData)
+                        self.firebaseHelper.rootRef.child("Users").child((currentUser?.uid)!).setValue(userData)
                         print(userData)
+                            
+                        self.performSegueWithIdentifier("signUpToInterestsSegue", sender: self)
+                        
                     }
-                    
                 }
             }
-            
-            performSegueWithIdentifier("signUpToMapSegue", sender: self)
-            
-        } else {
-            return
         }
     }
 }
+

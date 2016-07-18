@@ -32,18 +32,20 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
     
     var locationManager: CLLocationManager!
     
-    override func viewDidLoad(){
-        super.viewDidLoad()
-        
+    override func viewWillAppear(animated: Bool) {
         if (CLLocationManager.locationServicesEnabled()){
             locationManager = CLLocationManager()
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.requestWhenInUseAuthorization()
-            locationManager.startUpdatingLocation()
+            locationManager.requestLocation()
             
             map.showsUserLocation = true
         }
+    }
+    
+    override func viewDidLoad(){
+        super.viewDidLoad()
         
         prepareMenuView()
         hideKeyboardWhenTappedAround()
@@ -59,6 +61,10 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
         self.map.setRegion(region, animated: true)
 
         
+    }
+    
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print("ERROR")
     }
     
     
@@ -105,7 +111,7 @@ extension MapVC {
         btn1.addTarget(self, action: #selector(handleMenu), forControlEvents: .TouchUpInside)
         menuView.addSubview(btn1)
         
-        //MARK: second button
+        //MARK: second button (New Location)
         image = UIImage(named: "ic_create_white")?.imageWithRenderingMode(.AlwaysTemplate)
         let btn2: FabButton = FabButton()
         btn2.depth = .None
