@@ -52,6 +52,20 @@ class SignUpVC: UIViewController {
                     if error != nil {
                         return
                     } else {
+                        
+                        //Update the profile username
+                        let user = FIRAuth.auth()?.currentUser
+                        if let user = user {
+                            let changeRequest = user.profileChangeRequest()
+                            changeRequest.displayName = self.displayNameTextField.text!
+                            changeRequest.commitChangesWithCompletion { error in
+                                if let error = error {
+                                    print("Profile not updated")
+                                } else {
+                                    print("Profile updated")
+                                }
+                            }
+                        }
                             
                         //update the username of the current user in auth
                         let currentUser = FIRAuth.auth()?.currentUser

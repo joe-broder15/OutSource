@@ -32,23 +32,20 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
     
     var locationManager: CLLocationManager!
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewDidLoad(){
+        super.viewDidLoad()
+        prepareMenuView()
+        hideKeyboardWhenTappedAround()
+        
         if (CLLocationManager.locationServicesEnabled()){
             locationManager = CLLocationManager()
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.requestWhenInUseAuthorization()
-            locationManager.requestLocation()
+            locationManager.startUpdatingLocation()
             
             map.showsUserLocation = true
         }
-    }
-    
-    override func viewDidLoad(){
-        super.viewDidLoad()
-        
-        prepareMenuView()
-        hideKeyboardWhenTappedAround()
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
@@ -59,6 +56,7 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.31, longitudeDelta: 0.31))
         
         self.map.setRegion(region, animated: true)
+        locationManager.stopUpdatingLocation()
 
         
     }
@@ -90,10 +88,14 @@ extension MapVC {
     @objc(handleButton:)
     internal func handleButton(button: UIButton) {
         print("Hit Button \(button)")
-        
-        
     }
     
+    /// Handeles the location button.
+    func goToCurrentLocation(){
+        print("X")
+        locationManager.startUpdatingLocation()
+    }
+
     
     /// Prepares the MenuView example.
     private func prepareMenuView() {
@@ -160,7 +162,7 @@ extension MapVC {
         btn5.borderWidth = 1
         btn5.setImage(image, forState: .Normal)
         btn5.setImage(image, forState: .Highlighted)
-        btn5.addTarget(self, action: #selector(handleButton), forControlEvents: .TouchUpInside)
+        btn5.addTarget(self, action: #selector(goToCurrentLocation), forControlEvents: .TouchUpInside)
         menuView.addSubview(btn5)
         
         // Initialize the menu and setup the configuration options.

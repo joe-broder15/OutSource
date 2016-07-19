@@ -286,19 +286,14 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gtT-jI-nT8">
-                                            <rect key="frame" x="8" y="11" width="42" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gtT-jI-nT8">
+                                            <rect key="frame" x="8" y="21.5" width="0.0" height="0.0"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Gx-rm-qzZ">
-                                            <rect key="frame" x="543" y="6" width="51" height="31"/>
-                                        </switch>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="8Gx-rm-qzZ" firstAttribute="trailing" secondItem="dU9-8X-ASQ" secondAttribute="trailingMargin" id="T3E-8g-Upr"/>
-                                        <constraint firstItem="gtT-jI-nT8" firstAttribute="centerY" secondItem="8Gx-rm-qzZ" secondAttribute="centerY" id="YNo-0g-Vay"/>
                                         <constraint firstItem="gtT-jI-nT8" firstAttribute="centerY" secondItem="dU9-8X-ASQ" secondAttribute="centerY" id="adT-rp-qxX"/>
                                         <constraint firstItem="gtT-jI-nT8" firstAttribute="leading" secondItem="dU9-8X-ASQ" secondAttribute="leadingMargin" id="hOt-rG-FNj"/>
                                     </constraints>
@@ -306,7 +301,6 @@
                                 <accessibility key="accessibilityConfiguration" identifier="cell"/>
                                 <connections>
                                     <outlet property="interestsLabel" destination="gtT-jI-nT8" id="3T5-DC-JzI"/>
-                                    <outlet property="interestsSwitch" destination="8Gx-rm-qzZ" id="Pl4-j7-EqX"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -316,10 +310,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="What are you interested in?" id="sZg-Zl-jle">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="fvn-O7-YMH"/>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="fvn-O7-YMH">
+                            <connections>
+                                <action selector="doneBtnTapped:" destination="N4m-QZ-g6r" id="Dyt-5o-DMZ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="dnf-Fz-PmR" id="nJq-eZ-U0C"/>
+                        <segue destination="b40-p3-lzi" kind="presentation" identifier="interestsToMapSegue" id="gI1-rm-aip"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RYU-Gl-syD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -368,7 +367,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WJn-eV-QAk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1030" y="1242"/>
+            <point key="canvasLocation" x="1402" y="1192"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="J1J-CA-zJ7">
@@ -390,7 +389,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ghh-64-kBV"/>
         <segue reference="Jbo-Vw-auZ"/>
+        <segue reference="gI1-rm-aip"/>
     </inferredMetricsTieBreakers>
 </document>

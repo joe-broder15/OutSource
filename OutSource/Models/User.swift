@@ -9,17 +9,16 @@
 import Foundation
 
 struct User {
-    var email: String
-    var password: String
-    var userName: String
+    var email: String?
+    var userName: String?
+    var UID: String?
     var interests: [String]?
     
-    init(email: String, password: String, userName: String, interests: [String]?) {
-        
+    init(email: String?, userName: String?, interests: [String]?, UID: String?) {
         self.email = email
-        self.password = password
         self.userName = userName
         self.interests = interests
+        self.UID = UID
     }
     
     
