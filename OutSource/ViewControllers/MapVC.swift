@@ -37,6 +37,7 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
         prepareMenuView()
         hideKeyboardWhenTappedAround()
         
+        // set up the location services
         if (CLLocationManager.locationServicesEnabled()){
             locationManager = CLLocationManager()
             locationManager.delegate = self
@@ -48,6 +49,7 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
         }
     }
     
+    //Location zoom function
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
         
         let location = locations.last! as CLLocation
@@ -90,13 +92,16 @@ extension MapVC {
         print("Hit Button \(button)")
     }
     
-    /// Handeles the location button.
+    /// Handles the location button.
     func goToCurrentLocation(){
-        print("X")
         locationManager.startUpdatingLocation()
     }
-
     
+    func addLocationBtnTapped() {
+        locationManager.stopUpdatingLocation()
+        performSegueWithIdentifier("mapToAddLocationSegue", sender: self)
+    }
+
     /// Prepares the MenuView example.
     private func prepareMenuView() {
         
@@ -123,7 +128,7 @@ extension MapVC {
         btn2.borderWidth = 1
         btn2.setImage(image, forState: .Normal)
         btn2.setImage(image, forState: .Highlighted)
-        btn2.addTarget(self, action: #selector(handleButton), forControlEvents: .TouchUpInside)
+        btn2.addTarget(self, action: #selector(addLocationBtnTapped), forControlEvents: .TouchUpInside)
         menuView.addSubview(btn2)
         
         //MARK: third button
@@ -152,7 +157,7 @@ extension MapVC {
         btn4.addTarget(self, action: #selector(handleButton), forControlEvents: .TouchUpInside)
         menuView.addSubview(btn4)
         
-        //MARK: fifth button
+        //MARK: fifth button (current location)
         image = UIImage(named: "ic_note_add_white")?.imageWithRenderingMode(.AlwaysTemplate)
         let btn5: FabButton = FabButton()
         btn5.depth = .None
@@ -169,12 +174,9 @@ extension MapVC {
         menuView.menu.direction = .Up
         menuView.menu.baseSize = CGSizeMake(diameter, diameter)
         menuView.menu.views = [btn1, btn2, btn3, btn4, btn5]
-    
         view.layout(menuView).width(diameter).height(diameter).bottom(16).right(5)
     }
-
 }
-
 
 //MARK: Tap out of keyboard
 extension MapVC {

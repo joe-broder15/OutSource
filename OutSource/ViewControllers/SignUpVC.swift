@@ -59,7 +59,7 @@ class SignUpVC: UIViewController {
                             let changeRequest = user.profileChangeRequest()
                             changeRequest.displayName = self.displayNameTextField.text!
                             changeRequest.commitChangesWithCompletion { error in
-                                if let error = error {
+                                if error != nil {
                                     print("Profile not updated")
                                 } else {
                                     print("Profile updated")
