@@ -30,12 +30,19 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
     //The map view
     @IBOutlet weak var map: MKMapView!
     
+    let firebaseHelper = FirebaseHelper()
+    
+    
+    
     var locationManager: CLLocationManager!
     
     override func viewDidLoad(){
         super.viewDidLoad()
         prepareMenuView()
         hideKeyboardWhenTappedAround()
+        //let posts = firebaseHelper.loadPosts()
+        //print(posts)
+        
         
         // set up the location services
         if (CLLocationManager.locationServicesEnabled()){

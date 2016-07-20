@@ -29,7 +29,7 @@ class LoginVC: UIViewController, TextFieldDelegate {
         //logs in the user
         FIRAuth.auth()?.signInWithEmail(emailField.text!, password: emailField.text!) { (user, error) in
             if error != nil {
-                print("ERROR CODE 2: CREDENTIALS NOT RECOGNIZED")
+                print(error?.description)
                 return
             } else {
                 self.performSegueWithIdentifier("signInToMapSegue", sender: self)
