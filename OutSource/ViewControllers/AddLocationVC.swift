@@ -40,9 +40,12 @@ class AddLocationVC: UIViewController {
     }
     
     @IBAction func addButtonTapped(sender: FabButton) {
-//        Its kinda messy, but it adds new posts
-//        let newPost = Post(title: self.titleTextField.text!, description: self.descriptionTextView.text!, interest: self.interestTextField.text!, longitude: self.locationManager.location!.coordinate.longitude.description, latitude: self.locationManager.location!.coordinate.latitude.description, user: self.firebaseHelper.currentUser().UID!)
-//        newPost.uploadPost()
-//        self.dismissViewControllerAnimated(true, completion: nil)
+        //Its kinda messy, but it adds new posts
+        firebaseHelper.currentUser { user in
+        
+        let newPost = Post(title: self.titleTextField.text!, description: self.descriptionTextView.text!, interest: self.interestTextField.text!, longitude: self.locationManager.location!.coordinate.longitude.description, latitude: self.locationManager.location!.coordinate.latitude.description, user: user.UID!)
+        newPost.uploadPost()
+        self.dismissViewControllerAnimated(true, completion: nil)
+        }
     }
 }

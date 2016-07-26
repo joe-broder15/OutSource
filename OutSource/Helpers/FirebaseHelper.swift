@@ -38,33 +38,23 @@ class FirebaseHelper {
         })
     }
     
-//    func loadPosts() -> [Post] {
-//        
-//        let user = self.currentUser()
-//        var interestedPosts = [Post]()
-//        
-//        // Listen for new messages in the Firebase database
-//        _refHandle = self.postRef.observeEventType(.ChildAdded, withBlock: { (snapshot) -> Void in
-//            
-//            //get the value of the snapshot
-//            let postVal = snapshot.value as! Dictionary<String, String>
-//            
-//            //create a post object with the snapshot
+    func loadPosts(){
+
+        //var interestedPosts = [Post]()
+        
+        // Listen for new messages in the Firebase database
+        self.ref.child("Posts").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) -> Void in
+            
+            //get the value of the snapshot
+            let postVal = snapshot.value as! Dictionary<String, String>
+            
+            //create a post object with the snapshot
 //            let post = Post(title: postVal["title"], description: postVal["description"], interest: postVal["interest"], longitude: postVal["longitude"], latitude: postVal["latitude"], user: postVal["user"])
 //            
 //            print("created post")
-//            
-//            if the interest of the snapshot is equal to one of the user interests, append it to the interested posts
-//            for i in user.interests {
-//                if i == post.interest{
-//                    interestedPosts.append(post)
-//                    print("MATCH")
-//                }else{
-//                    print("no match")
-//                }
-//            }
-//        })
-//        //print(user.interests)
-//        return interestedPosts
-//    }
+            print(postVal)
+            print("x")
+            
+        })
+    }
 }

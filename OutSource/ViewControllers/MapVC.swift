@@ -52,7 +52,7 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
         
         firebaseHelper.currentUser { user in
             self.user = user
-            
+            self.firebaseHelper.loadPosts()
         }
         
         

@@ -69,15 +69,21 @@ class InterestsVC: UITableViewController {
     }
     
     @IBAction func doneBtnTapped(sender: UIBarButtonItem) {
-        let currentUser = self.firebaseHelper.currentUser
-        var selectedCells = [String]()
-        for cell in cells {
-            if cell.selected == true {
-                selectedCells.append(cell.textLabel!.text!)
+        
+        firebaseHelper.currentUser { user in
+            
+            var selectedCells = [String]()
+            for cell in self.cells {
+                if cell.selected == true {
+                    selectedCells.append(cell.textLabel!.text!)
+                }
             }
+            self.firebaseHelper.usersRef.child(user.UID!).child("interests").setValue(selectedCells)
+            self.performSegueWithIdentifier("interestsToMapSegue", sender: self)
+            
         }
-//        firebaseHelper.usersRef.child(currentUser().UID!).child("interests").setValue(selectedCells)
-        self.performSegueWithIdentifier("interestsToMapSegue", sender: self)
+        
+        
     }
     
     
