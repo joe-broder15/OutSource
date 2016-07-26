@@ -84,7 +84,7 @@
                                 <rect key="frame" x="277" y="381" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="b40-p3-lzi" kind="presentation" id="ghh-64-kBV"/>
+                                    <action selector="quickLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a49-yx-otR"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TLb-nX-aFr" customClass="RaisedButton" customModule="Material">
@@ -121,11 +121,12 @@
                         <outlet property="emailField" destination="5ZH-eW-Hpg" id="Vpj-M4-4JS"/>
                         <outlet property="pwField" destination="cpO-mF-eUi" id="l29-Ta-fdC"/>
                         <segue destination="b40-p3-lzi" kind="presentation" identifier="signInToMapSegue" id="Zc6-QD-XUW"/>
+                        <segue destination="b40-p3-lzi" kind="presentation" identifier="quickLoginSegue" id="8UW-wd-aYK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="325" y="399"/>
+            <point key="canvasLocation" x="339" y="399"/>
         </scene>
         <!--Sign UpVC-->
         <scene sceneID="h3I-SJ-zcl">
@@ -323,7 +324,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RYU-Gl-syD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2328" y="399"/>
+            <point key="canvasLocation" x="2357" y="399"/>
         </scene>
         <!--Add a Shout!-->
         <scene sceneID="cZk-St-4UA">
@@ -506,7 +507,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7SN-W6-KMI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1649" y="399"/>
+            <point key="canvasLocation" x="1677" y="399"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BeG-69-AJK">
@@ -528,7 +529,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ghh-64-kBV"/>
+        <segue reference="8UW-wd-aYK"/>
         <segue reference="Jbo-Vw-auZ"/>
     </inferredMetricsTieBreakers>
 </document>

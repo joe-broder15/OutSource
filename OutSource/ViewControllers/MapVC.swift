@@ -11,6 +11,7 @@ import MapKit
 import Material
 import UIKit
 import CoreLocation
+import Firebase
 
 class MapVC: UIViewController, CLLocationManagerDelegate {
     
@@ -30,18 +31,29 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
     //The map view
     @IBOutlet weak var map: MKMapView!
     
+    //Firebase helper
     let firebaseHelper = FirebaseHelper()
     
+    //Posts we will load
+    var posts = [Post]()
     
+    //the current user
+    var user = User(email: nil, userName: nil, UID: nil, interests: nil)
     
+    //the location contoller
     var locationManager: CLLocationManager!
     
     override func viewDidLoad(){
         super.viewDidLoad()
         prepareMenuView()
         hideKeyboardWhenTappedAround()
-        //let posts = firebaseHelper.loadPosts()
-        //print(posts)
+        ///
+        print("creating user object")
+        
+        firebaseHelper.currentUser { user in
+            self.user = user
+            
+        }
         
         
         // set up the location services
@@ -73,9 +85,9 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         print("ERROR")
     }
-    
-    
 }
+    
+
 
 //MARK: THIS EXTENSION HANDLES THE MENU
 extension MapVC {

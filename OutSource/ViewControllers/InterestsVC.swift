@@ -19,6 +19,7 @@ class InterestsVC: UITableViewController {
     var ref: FIRDatabaseReference!
     
     
+    
         
     override func viewDidLoad() {
         self.configureDatabase()
@@ -68,13 +69,14 @@ class InterestsVC: UITableViewController {
     }
     
     @IBAction func doneBtnTapped(sender: UIBarButtonItem) {
+        let currentUser = self.firebaseHelper.currentUser
         var selectedCells = [String]()
         for cell in cells {
             if cell.selected == true {
                 selectedCells.append(cell.textLabel!.text!)
             }
         }
-        firebaseHelper.usersRef.child((self.firebaseHelper.currentUser?.uid)!).child("interests").setValue(selectedCells)
+//        firebaseHelper.usersRef.child(currentUser().UID!).child("interests").setValue(selectedCells)
         self.performSegueWithIdentifier("interestsToMapSegue", sender: self)
     }
     

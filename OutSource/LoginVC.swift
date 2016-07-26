@@ -13,7 +13,7 @@ import Firebase
 
 class LoginVC: UIViewController, TextFieldDelegate {
     
-    let firebaseHelper = FirebaseHelper()
+    //let firebaseHelper = FirebaseHelper()
     
     @IBOutlet weak var emailField: TextField!
     @IBOutlet weak var pwField: TextField!
@@ -36,5 +36,18 @@ class LoginVC: UIViewController, TextFieldDelegate {
             }
         }
     }
+    
+    //QuickLogin
+    @IBAction func quickLogin(sender: FlatButton) {
+        FIRAuth.auth()?.signInWithEmail("admin@test.com", password: "1234567") { (user, error) in
+            if error != nil {
+                print(error?.description)
+                return
+            } else {
+                self.performSegueWithIdentifier("quickLoginSegue", sender: self)
+            }
+        }
+    }
+    
 }
 

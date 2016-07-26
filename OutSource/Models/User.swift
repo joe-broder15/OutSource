@@ -8,17 +8,17 @@
 
 import Foundation
 
-struct User {
+class User {
     var email: String?
     var userName: String?
     var UID: String?
     var interests: [String]?
     
-    init(email: String?, userName: String?, interests: [String]?, UID: String?) {
+    init(email: String?, userName: String?, UID: String?, interests: [String]?) {
         self.email = email
         self.userName = userName
-        self.interests = interests
         self.UID = UID
+        self.interests = interests
     }
     
     

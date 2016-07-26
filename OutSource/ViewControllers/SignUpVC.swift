@@ -18,6 +18,7 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var displayNameTextField: TextField!
     
     let firebaseHelper = FirebaseHelper()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
