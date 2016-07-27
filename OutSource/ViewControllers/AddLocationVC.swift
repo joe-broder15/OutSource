@@ -24,6 +24,7 @@ class AddLocationVC: UIViewController {
     
     override func viewDidLoad() {
         hideKeyboardWhenTappedAround()
+        
     }
     
     @IBAction func cancelButtonTapped(sender: UIBarButtonItem) {
@@ -43,9 +44,9 @@ class AddLocationVC: UIViewController {
         //Its kinda messy, but it adds new posts
         firebaseHelper.currentUser { user in
         
-        let newPost = Post(title: self.titleTextField.text!, description: self.descriptionTextView.text!, interest: self.interestTextField.text!, longitude: self.locationManager.location!.coordinate.longitude.description, latitude: self.locationManager.location!.coordinate.latitude.description, user: user.UID!)
-        newPost.uploadPost()
-        self.dismissViewControllerAnimated(true, completion: nil)
+            let newPost = Post(title: self.titleTextField.text!, description: self.descriptionTextView.text!, interest: self.interestTextField.text!, longitude: self.locationManager.location!.coordinate.longitude.description, latitude: self.locationManager.location!.coordinate.latitude.description, user: user.UID!)
+            newPost.uploadPost()
+            self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
 }

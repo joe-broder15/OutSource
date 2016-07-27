@@ -20,7 +20,7 @@ class FirebaseHelper {
     var _refHandle: FIRDatabaseHandle!
     let ref = FIRDatabase.database().reference()
     
-    func currentUser(completionHandler: (User) -> Void ){
+    func currentUser(completionHandler: (User) -> Void){
         
         var user = User(email: FIRAuth.auth()?.currentUser?.email, userName: FIRAuth.auth()?.currentUser?.displayName, UID: FIRAuth.auth()?.currentUser?.uid, interests: nil)
         
@@ -38,23 +38,26 @@ class FirebaseHelper {
         })
     }
     
-    func loadPosts(){
-
-        //var interestedPosts = [Post]()
+    func loadPosts(user: User, completionHandler: (Post) -> Void){
         
         // Listen for new messages in the Firebase database
-        self.ref.child("Posts").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) -> Void in
+        self.ref.child("Posts").observeEventType(FIRDataEventType.ChildAdded, withBlock: { (snapshot) -> Void in
             
             //get the value of the snapshot
-            let postVal = snapshot.value as! Dictionary<String, String>
+            let postVal = snapshot.value! as! Dictionary<String, String>
             
-            //create a post object with the snapshot
-//            let post = Post(title: postVal["title"], description: postVal["description"], interest: postVal["interest"], longitude: postVal["longitude"], latitude: postVal["latitude"], user: postVal["user"])
-//            
-//            print("created post")
-            print(postVal)
-            print("x")
-            
+            if user.interests!.contains(postVal["interest"]!){
+                let matchedPost = Post(title: postVal["title"],
+                    description: postVal["description"],
+                    interest: postVal["interest"],
+                    longitude: postVal["longitude"],
+                    latitude: postVal["latitude"],
+                    user: postVal["user"])
+                
+                completionHandler(matchedPost)
+                
+                
+            }
         })
     }
 }

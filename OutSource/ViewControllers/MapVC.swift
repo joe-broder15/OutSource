@@ -47,14 +47,6 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         prepareMenuView()
         hideKeyboardWhenTappedAround()
-        ///
-        print("creating user object")
-        
-        firebaseHelper.currentUser { user in
-            self.user = user
-            self.firebaseHelper.loadPosts()
-        }
-        
         
         // set up the location services
         if (CLLocationManager.locationServicesEnabled()){
@@ -66,7 +58,23 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
             
             map.showsUserLocation = true
         }
+        
+        //self.map.delegate = self
+        
+        self.firebaseHelper.currentUser { user in
+            self.firebaseHelper.loadPosts(user){ post in
+                let pin = MKPointAnnotation()
+                pin.coordinate = CLLocationCoordinate2D(latitude: Double(post.latitude!)!, longitude: Double(post.longitude!)!)
+                pin.title = post.title!
+                pin.subtitle = post.description!
+            
+                //pin.description = post.description
+                self.map.addAnnotation(pin)
+             
+            }
+        }
     }
+    
     
     //Location zoom function
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
@@ -85,6 +93,7 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         print("ERROR")
     }
+    
 }
     
 
