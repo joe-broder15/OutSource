@@ -47,6 +47,7 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         prepareMenuView()
         hideKeyboardWhenTappedAround()
+        self.map.delegate = self
         
         // set up the location services
         if (CLLocationManager.locationServicesEnabled()){
@@ -58,19 +59,23 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
             
             map.showsUserLocation = true
         }
-        
-        //self.map.delegate = self
+
         
         self.firebaseHelper.currentUser { user in
+            
             self.firebaseHelper.loadPosts(user){ post in
+                
                 let pin = MKPointAnnotation()
+                
                 pin.coordinate = CLLocationCoordinate2D(latitude: Double(post.latitude!)!, longitude: Double(post.longitude!)!)
                 pin.title = post.title!
                 pin.subtitle = post.description!
-            
-                //pin.description = post.description
-                self.map.addAnnotation(pin)
-             
+                
+                
+                dispatch_async(dispatch_get_main_queue(), { 
+                    //self.map.viewForAnnotation(pin)
+                    self.map.addAnnotation(pin)
+                })
             }
         }
     }
@@ -96,7 +101,31 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
     
 }
     
-
+extension MapVC: MKMapViewDelegate {
+    
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        let identifier = "pin"
+        
+        if annotation.isKindOfClass(MKPointAnnotation) {
+            if let annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) {
+                annotationView.annotation = annotation
+                return annotationView
+            } else {
+                let annotationView = MKPinAnnotationView(annotation:annotation, reuseIdentifier:identifier)
+                annotationView.enabled = true
+                annotationView.canShowCallout = true
+                
+                let btn = UIButton(type: .InfoLight)
+                btn.tintColor = UIColor.init(red: 0, green: 0, blue: 100, alpha: 1.0)
+                annotationView.rightCalloutAccessoryView = btn
+                return annotationView
+            }
+        }
+        
+        return nil
+    }
+    
+}
 
 //MARK: THIS EXTENSION HANDLES THE MENU
 extension MapVC {
