@@ -19,10 +19,11 @@ class FirebaseHelper {
     var currentUserAuth = FIRAuth.auth()?.currentUser
     var _refHandle: FIRDatabaseHandle!
     let ref = FIRDatabase.database().reference()
+    let storageRef = FIRStorage.storage().reference()
     
     func currentUser(completionHandler: (User) -> Void){
         
-        var user = User(email: FIRAuth.auth()?.currentUser?.email, userName: FIRAuth.auth()?.currentUser?.displayName, UID: FIRAuth.auth()?.currentUser?.uid, interests: nil)
+        let user = User(email: FIRAuth.auth()?.currentUser?.email, userName: FIRAuth.auth()?.currentUser?.displayName, UID: FIRAuth.auth()?.currentUser?.uid, interests: nil)
         
         var interestList = [String]?()
         
@@ -44,19 +45,25 @@ class FirebaseHelper {
         self.ref.child("Posts").observeEventType(FIRDataEventType.ChildAdded, withBlock: { (snapshot) -> Void in
             
             //get the value of the snapshot
-            let postVal = snapshot.value! as! Dictionary<String, String>
+            let postVal = snapshot.value! as! Dictionary<String, AnyObject>
             
-            if user.interests!.contains(postVal["interest"]!){
-                let matchedPost = Post(title: postVal["title"],
-                    description: postVal["description"],
-                    interest: postVal["interest"],
-                    longitude: postVal["longitude"],
-                    latitude: postVal["latitude"],
-                    user: postVal["user"])
+            //Deletes values if they are old
+            if (NSDate().timeIntervalSince1970 as Double) - (postVal["timeStamp"] as! Double)  > 86400{
+                self.ref.child("Posts").child(snapshot.key).removeValue()
+            } else {
+                //otherwise we create a post and go to the callback
+                if user.interests!.contains(postVal["interest"]! as! String){
+                    let matchedPost = Post(title: postVal["title"] as? String,
+                        description: postVal["description"] as? String,
+                        interest: postVal["interest"] as? String,
+                        longitude: postVal["longitude"] as? String,
+                        latitude: postVal["latitude"] as? String,
+                        user: postVal["user"] as? String)
                 
-                completionHandler(matchedPost)
+                    completionHandler(matchedPost)
                 
                 
+                }
             }
         })
     }

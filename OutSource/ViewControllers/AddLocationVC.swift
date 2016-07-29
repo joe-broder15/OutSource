@@ -13,11 +13,12 @@ import CoreLocation
 import MapKit
 import Material
 
-class AddLocationVC: UIViewController {
+class AddLocationVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var titleTextField: TextField!
     @IBOutlet weak var interestTextField: TextField!
     @IBOutlet weak var descriptionTextView: TextView!
+    @IBOutlet weak var imageView: UIImageView!
     
     let locationManager = CLLocationManager()
     let firebaseHelper = FirebaseHelper()
@@ -40,11 +41,28 @@ class AddLocationVC: UIViewController {
         view.endEditing(true)
     }
     
+    @IBAction func addImageButtonTapped(sender: FabButton) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+            var imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera;
+            imagePicker.allowsEditing = false
+            self.presentViewController(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+        self.imageView.image = image
+        self.dismissViewControllerAnimated(true, completion: nil);
+    }
+    
+
+    
     @IBAction func addButtonTapped(sender: FabButton) {
         //Its kinda messy, but it adds new posts
         firebaseHelper.currentUser { user in
         
-            let newPost = Post(title: self.titleTextField.text!, description: self.descriptionTextView.text!, interest: self.interestTextField.text!, longitude: self.locationManager.location!.coordinate.longitude.description, latitude: self.locationManager.location!.coordinate.latitude.description, user: user.UID!)
+            let newPost = Post(title: self.titleTextField.text!, description: self.descriptionTextView.text!, interest: self.interestTextField.text!, longitude: self.locationManager.location!.coordinate.longitude.description, latitude: self.locationManager.location!.coordinate.latitude.description, user: user.UID!, imageLink: 
             newPost.uploadPost()
             self.dismissViewControllerAnimated(true, completion: nil)
         }

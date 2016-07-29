@@ -69,7 +69,7 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
                 
                 pin.coordinate = CLLocationCoordinate2D(latitude: Double(post.latitude!)!, longitude: Double(post.longitude!)!)
                 pin.title = post.title!
-                pin.subtitle = post.description!
+                pin.subtitle = "\(post.interest!): \(post.description!)"
                 
                 
                 dispatch_async(dispatch_get_main_queue(), { 
@@ -117,7 +117,11 @@ extension MapVC: MKMapViewDelegate {
                 
                 let btn = UIButton(type: .InfoLight)
                 btn.tintColor = UIColor.init(red: 0, green: 0, blue: 100, alpha: 1.0)
+                
+                let imageView = UIImageView()
+        
                 annotationView.rightCalloutAccessoryView = btn
+                annotationView.leftCalloutAccessoryView = imageView
                 return annotationView
             }
         }
