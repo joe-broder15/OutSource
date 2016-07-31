@@ -21,6 +21,7 @@ class FirebaseHelper {
     let ref = FIRDatabase.database().reference()
     let storageRef = FIRStorage.storage().reference()
     
+    
     func currentUser(completionHandler: (User) -> Void){
         
         let user = User(email: FIRAuth.auth()?.currentUser?.email, userName: FIRAuth.auth()?.currentUser?.displayName, UID: FIRAuth.auth()?.currentUser?.uid, interests: nil)
@@ -49,7 +50,17 @@ class FirebaseHelper {
             
             //Deletes values if they are old
             if (NSDate().timeIntervalSince1970 as Double) - (postVal["timeStamp"] as! Double)  > 86400{
+                
+                self.storageRef.child((postVal["imageID"] as? String)!).deleteWithCompletion { (error) -> Void in
+                    if (error != nil) {
+                        // Uh-oh, an error occurred!
+                    } else {
+                        // File deleted successfully
+                    }
+                }
                 self.ref.child("Posts").child(snapshot.key).removeValue()
+                
+                
             } else {
                 //otherwise we create a post and go to the callback
                 if user.interests!.contains(postVal["interest"]! as! String){
@@ -58,7 +69,8 @@ class FirebaseHelper {
                         interest: postVal["interest"] as? String,
                         longitude: postVal["longitude"] as? String,
                         latitude: postVal["latitude"] as? String,
-                        user: postVal["user"] as? String)
+                        user: postVal["user"] as? String,
+                        imageID: postVal["imageID"] as? String)
                 
                     completionHandler(matchedPost)
                 

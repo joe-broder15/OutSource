@@ -22,16 +22,16 @@ class Post {
     let longitude: String?
     let latitude: String?
     let user: String?
-    let imageLink: String?
+    let imageID: String?
     
-    init(title: String?, description: String?, interest: String?, longitude: String?, latitude: String?, user: String?, imageLink: String?){
+    init(title: String?, description: String?, interest: String?, longitude: String?, latitude: String?, user: String?, imageID: String?){
         self.longitude = longitude
         self.latitude = latitude
         self.title = title
         self.description = description
         self.interest = interest
         self.user = user
-        self.imageLink = imageLink
+        self.imageID = imageID
     }
     
     func uploadPost(){
@@ -43,7 +43,7 @@ class Post {
                                                     "longitude": self.longitude!,
                                                     "latitude": self.latitude!,
                                                     "timeStamp": NSDate().timeIntervalSince1970 as NSNumber,
-                                                    "imageLink": self.imageLink!]
+                                                    "imageID": self.imageID!]
         
         self.firebaseHelper.postRef.childByAutoId().setValue(postInfo)
     }

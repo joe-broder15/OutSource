@@ -43,7 +43,7 @@ class AddLocationVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
     
     @IBAction func addImageButtonTapped(sender: FabButton) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
-            var imagePicker = UIImagePickerController()
+            let imagePicker = UIImagePickerController()
             imagePicker.delegate = self
             imagePicker.sourceType = UIImagePickerControllerSourceType.Camera;
             imagePicker.allowsEditing = false
@@ -61,10 +61,27 @@ class AddLocationVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
     @IBAction func addButtonTapped(sender: FabButton) {
         //Its kinda messy, but it adds new posts
         firebaseHelper.currentUser { user in
+            let imageID = NSUUID().UUIDString
+            let imageStorageRef = self.firebaseHelper.storageRef.child((FIRAuth.auth()?.currentUser?.uid)!).child(imageID)
+            
+            let localImage = UIImageJPEGRepresentation(self.imageView.image!, 0.9)
+            
+            let upload = imageStorageRef.putData(localImage!, metadata: nil) { metadata, error in
+                if (error != nil) {
+                        
+                } else {
+                        
+                    // Metadata contains file metadata such as size, content-type, and download URL.
+                    let newPost = Post(title: self.titleTextField.text!, description: self.descriptionTextView.text!, interest: self.interestTextField.text!, longitude: self.locationManager.location!.coordinate.longitude.description, latitude: self.locationManager.location!.coordinate.latitude.description, user: user.UID!, imageID: "\(user.UID!)/\(imageID)")
+                    
+                    newPost.uploadPost()
+                    
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                }
+            }
+            
         
-            let newPost = Post(title: self.titleTextField.text!, description: self.descriptionTextView.text!, interest: self.interestTextField.text!, longitude: self.locationManager.location!.coordinate.longitude.description, latitude: self.locationManager.location!.coordinate.latitude.description, user: user.UID!, imageLink: 
-            newPost.uploadPost()
-            self.dismissViewControllerAnimated(true, completion: nil)
+            
         }
     }
 }
