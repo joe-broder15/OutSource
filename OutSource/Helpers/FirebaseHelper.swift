@@ -21,20 +21,23 @@ class FirebaseHelper {
     let ref = FIRDatabase.database().reference()
     let storageRef = FIRStorage.storage().reference()
     
-    
+    //Returns the current user with a callback
     func currentUser(completionHandler: (User) -> Void){
         
+        //create the user
         let user = User(email: FIRAuth.auth()?.currentUser?.email, userName: FIRAuth.auth()?.currentUser?.displayName, UID: FIRAuth.auth()?.currentUser?.uid, interests: nil)
         
+        //make an array to become the interest value
         var interestList = [String]?()
         
+        //Get the interests
         self.ref.child("Users").child(user.UID!).child("interests").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) -> Void in
             
-            print("Setting interests")
+            //Get interests and reset the user's value
             interestList = snapshot.value as? [String]
-            print(interestList)
             user.interests = interestList
             
+            //go into the completion block
             completionHandler(user)
             
         })
@@ -53,7 +56,7 @@ class FirebaseHelper {
                 
                 self.storageRef.child((postVal["imageID"] as? String)!).deleteWithCompletion { (error) -> Void in
                     if (error != nil) {
-                        // Uh-oh, an error occurred!
+                        print(error?.description)
                     } else {
                         // File deleted successfully
                     }
@@ -71,7 +74,8 @@ class FirebaseHelper {
                         latitude: postVal["latitude"] as? String,
                         user: postVal["user"] as? String,
                         imageID: postVal["imageID"] as? String)
-                
+                    
+                    //callback
                     completionHandler(matchedPost)
                 
                 

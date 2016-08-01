@@ -43,6 +43,7 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
     //the location contoller
     var locationManager: CLLocationManager!
     
+    //Where creating the posts happens
     override func viewDidLoad(){
         super.viewDidLoad()
         prepareMenuView()
@@ -65,21 +66,30 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
             
             self.firebaseHelper.loadPosts(user){ post in
                 
-                let pin = MKPointAnnotation()
-                
-                pin.coordinate = CLLocationCoordinate2D(latitude: Double(post.latitude!)!, longitude: Double(post.longitude!)!)
-                pin.title = post.title!
-                pin.subtitle = "\(post.interest!): \(post.description!)"
-                
-                
-                dispatch_async(dispatch_get_main_queue(), { 
-                    //self.map.viewForAnnotation(pin)
-                    self.map.addAnnotation(pin)
-                })
+                // Download i post image
+                self.firebaseHelper.storageRef.child(post.imageID!).dataWithMaxSize(1 * 6000 * 6000) { (data, error) -> Void in
+                    if (error != nil) {
+                        print(error?.description)
+                    } else {
+                        
+                        print("image downloaded")
+                        
+                        let pin = PostAnnotation(post: post, image: UIImage(data: data!)!)
+                        
+                        pin.coordinate = CLLocationCoordinate2D(latitude: Double(post.latitude!)!, longitude: Double(post.longitude!)!)
+                        pin.title = post.title!
+                        pin.subtitle = "\(post.interest!): \(post.description!)"
+                        
+                        
+                        dispatch_async(dispatch_get_main_queue(), {
+                            //self.map.viewForAnnotation(pin)
+                            self.map.addAnnotation(pin)
+                        })
+                    }
+                }
             }
         }
     }
-    
     
     //Location zoom function
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
@@ -99,35 +109,59 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
         print("ERROR")
     }
     
-}
+    //Handles the button on the annotations
+    func displayPostDetail(sender: PostButton){
+        print(sender.post?.title!)
+        performSegueWithIdentifier("mapToDetailSegue", sender: sender)
+        
+    }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let identifier = segue.identifier {
+            if identifier == "mapToDetailSegue" {
+                
+                let destinationVC:PostDetailVC = segue.destinationViewController as! PostDetailVC
+                destinationVC.post = (sender as!  PostButton).post!
+                
+            }
+        }
+    }
+    
+    
+    
+}
+
+//Stuff for buttons and annotations
 extension MapVC: MKMapViewDelegate {
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-        let identifier = "pin"
-        
-        if annotation.isKindOfClass(MKPointAnnotation) {
-            if let annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) {
-                annotationView.annotation = annotation
-                return annotationView
+        if let annotation = annotation as? PostAnnotation {
+            let identifier = "pin"
+            var view: MKPinAnnotationView
+            if let dequeuedView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) as? MKPinAnnotationView {
+                dequeuedView.annotation = annotation
+                view = dequeuedView
             } else {
-                let annotationView = MKPinAnnotationView(annotation:annotation, reuseIdentifier:identifier)
-                annotationView.enabled = true
-                annotationView.canShowCallout = true
+                view = MKPinAnnotationView(annotation: annotation , reuseIdentifier: identifier)
+                view.canShowCallout = true
+                view.calloutOffset = CGPoint(x: -5, y: 5)
                 
-                let btn = UIButton(type: .InfoLight)
+                let btn = PostButton(type: .InfoLight)
+                btn.post = annotation.post
                 btn.tintColor = UIColor.init(red: 0, green: 0, blue: 100, alpha: 1.0)
+                btn.addTarget(self, action: #selector(displayPostDetail), forControlEvents: .TouchUpInside)
+                view.rightCalloutAccessoryView = btn
                 
-                let imageView = UIImageView()
-        
-                annotationView.rightCalloutAccessoryView = btn
-                annotationView.leftCalloutAccessoryView = imageView
-                return annotationView
+//                let imageView = UIImageView()
+//                imageView.image = annotation.image
+//                view.leftCalloutAccessoryView = imageView
+                
             }
+            return view
         }
-        
         return nil
     }
+    
     
 }
 

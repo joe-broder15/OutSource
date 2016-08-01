@@ -28,9 +28,10 @@ class AddLocationVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
         
     }
     
-    @IBAction func cancelButtonTapped(sender: UIBarButtonItem) {
+    @IBAction func cancelButtonTapped(sender: UIButton) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
     
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(AddLocationVC.dismissKeyboard))
@@ -76,9 +77,10 @@ class AddLocationVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
                     
                     newPost.uploadPost()
                     
-                    self.dismissViewControllerAnimated(true, completion: nil)
+                    
                 }
             }
+            self.dismissViewControllerAnimated(true, completion: nil)
             
         
             
