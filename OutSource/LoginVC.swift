@@ -39,7 +39,7 @@ class LoginVC: UIViewController, TextFieldDelegate {
     
     //QuickLogin
     @IBAction func quickLogin(sender: FlatButton) {
-        FIRAuth.auth()?.signInWithEmail("admin@test.com", password: "1234567") { (user, error) in
+        FIRAuth.auth()?.signInWithEmail("test@test.com", password: "1234567") { (user, error) in
             if error != nil {
                 print(error?.description)
                 return

@@ -18,12 +18,12 @@ class PostDetailVC: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var interestLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var descriptionFeild: UITextView!
     
     override func viewDidLoad() {
         self.titleLabel.text = post.title
         self.interestLabel.text = post.interest
-        self.descriptionLabel.text = post.description
+        self.descriptionFeild.text = post.description
         
         // Download post image
         self.firebaseHelper.storageRef.child(post.imageID!).dataWithMaxSize(1 * 6000 * 6000) { (data, error) -> Void in

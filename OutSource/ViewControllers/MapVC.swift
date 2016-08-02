@@ -78,7 +78,7 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
                         
                         pin.coordinate = CLLocationCoordinate2D(latitude: Double(post.latitude!)!, longitude: Double(post.longitude!)!)
                         pin.title = post.title!
-                        pin.subtitle = "\(post.interest!): \(post.description!)"
+                        pin.subtitle = post.interest!
                         
                         
                         dispatch_async(dispatch_get_main_queue(), {
@@ -196,6 +196,10 @@ extension MapVC {
         locationManager.stopUpdatingLocation()
         performSegueWithIdentifier("mapToAddLocationSegue", sender: self)
     }
+    
+    func settingsBtnTapped(){
+        performSegueWithIdentifier("mapToSettingsSegue", sender: self)
+    }
 
     /// Prepares the MenuView example.
     private func prepareMenuView() {
@@ -236,7 +240,7 @@ extension MapVC {
         btn3.borderWidth = 1
         btn3.setImage(image, forState: .Normal)
         btn3.setImage(image, forState: .Highlighted)
-        btn3.addTarget(self, action: #selector(handleButton), forControlEvents: .TouchUpInside)
+        btn3.addTarget(self, action: #selector(settingsBtnTapped), forControlEvents: .TouchUpInside)
         menuView.addSubview(btn3)
         
         //MARK: fourth button
@@ -249,26 +253,13 @@ extension MapVC {
         btn4.borderWidth = 1
         btn4.setImage(image, forState: .Normal)
         btn4.setImage(image, forState: .Highlighted)
-        btn4.addTarget(self, action: #selector(handleButton), forControlEvents: .TouchUpInside)
+        btn4.addTarget(self, action: #selector(goToCurrentLocation), forControlEvents: .TouchUpInside)
         menuView.addSubview(btn4)
-        
-        //MARK: fifth button (current location)
-        image = UIImage(named: "ic_note_add_white")?.imageWithRenderingMode(.AlwaysTemplate)
-        let btn5: FabButton = FabButton()
-        btn5.depth = .None
-        btn5.tintColor = MaterialColor.blue.accent3
-        btn5.borderColor = MaterialColor.white
-        btn5.backgroundColor = MaterialColor.pink.accent1
-        btn5.borderWidth = 1
-        btn5.setImage(image, forState: .Normal)
-        btn5.setImage(image, forState: .Highlighted)
-        btn5.addTarget(self, action: #selector(goToCurrentLocation), forControlEvents: .TouchUpInside)
-        menuView.addSubview(btn5)
         
         // Initialize the menu and setup the configuration options.
         menuView.menu.direction = .Up
         menuView.menu.baseSize = CGSizeMake(diameter, diameter)
-        menuView.menu.views = [btn1, btn2, btn3, btn4, btn5]
+        menuView.menu.views = [btn1, btn2, btn3, btn4]
         view.layout(menuView).width(diameter).height(diameter).bottom(16).right(5)
     }
 }
