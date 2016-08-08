@@ -47,7 +47,6 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad(){
         super.viewDidLoad()
         prepareMenuView()
-        hideKeyboardWhenTappedAround()
         self.map.delegate = self
         
         // set up the location services
@@ -120,9 +119,9 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
         if let identifier = segue.identifier {
             if identifier == "mapToDetailSegue" {
                 
-                let destinationVC:PostDetailVC = segue.destinationViewController as! PostDetailVC
-                destinationVC.post = (sender as!  PostButton).post!
-                
+                let navController = segue.destinationViewController as! UINavigationController
+                let detailController = navController.topViewController as! PostDetailVC
+                detailController.post = (sender as!  PostButton).post!
             }
         }
     }
@@ -205,12 +204,12 @@ extension MapVC {
     private func prepareMenuView() {
         
         //MARK: first button
-        var image: UIImage? = UIImage(named: "ic_add_white")?.imageWithRenderingMode(.AlwaysTemplate)
+        var image: UIImage? = UIImage(named: "plusIcon")?.imageWithRenderingMode(.AlwaysTemplate)
         let btn1: FabButton = FabButton()
         btn1.depth = .None
-        btn1.tintColor = MaterialColor.blue.accent3
+        btn1.pulseOpacity = 0
         btn1.borderColor = MaterialColor.white
-        btn1.backgroundColor = MaterialColor.red.accent1
+        btn1.backgroundColor = self.hexStringToUIColor("#40DE96")
         btn1.borderWidth = 1
         btn1.setImage(image, forState: .Normal)
         btn1.setImage(image, forState: .Highlighted)
@@ -218,12 +217,12 @@ extension MapVC {
         menuView.addSubview(btn1)
         
         //MARK: second button (New Location)
-        image = UIImage(named: "ic_create_white")?.imageWithRenderingMode(.AlwaysTemplate)
+        image = UIImage(named: "addPostIcon")?.imageWithRenderingMode(.AlwaysTemplate)
         let btn2: FabButton = FabButton()
         btn2.depth = .None
-        btn2.tintColor = MaterialColor.blue.accent3
+        btn2.pulseOpacity = 0
         btn2.borderColor = MaterialColor.white
-        btn2.backgroundColor = MaterialColor.green.accent1
+        btn2.backgroundColor = self.hexStringToUIColor("#46F2AF")
         btn2.borderWidth = 1
         btn2.setImage(image, forState: .Normal)
         btn2.setImage(image, forState: .Highlighted)
@@ -231,12 +230,12 @@ extension MapVC {
         menuView.addSubview(btn2)
         
         //MARK: third button
-        image = UIImage(named: "ic_photo_camera_white")?.imageWithRenderingMode(.AlwaysTemplate)
+        image = UIImage(named: "gearIcon")?.imageWithRenderingMode(.AlwaysTemplate)
         let btn3: FabButton = FabButton()
         btn3.depth = .None
-        btn3.tintColor = MaterialColor.blue.accent3
+        btn3.pulseOpacity = 0
         btn3.borderColor = MaterialColor.white
-        btn3.backgroundColor = MaterialColor.blue.accent1
+        btn3.backgroundColor = self.hexStringToUIColor("#46F2AF")
         btn3.borderWidth = 1
         btn3.setImage(image, forState: .Normal)
         btn3.setImage(image, forState: .Highlighted)
@@ -244,12 +243,12 @@ extension MapVC {
         menuView.addSubview(btn3)
         
         //MARK: fourth button
-        image = UIImage(named: "ic_note_add_white")?.imageWithRenderingMode(.AlwaysTemplate)
+        image = UIImage(named: "navIcon")?.imageWithRenderingMode(.AlwaysTemplate)
         let btn4: FabButton = FabButton()
         btn4.depth = .None
-        btn4.tintColor = MaterialColor.blue.accent3
+        btn4.pulseOpacity = 0
         btn4.borderColor = MaterialColor.white
-        btn4.backgroundColor = MaterialColor.yellow.accent1
+        btn4.backgroundColor = self.hexStringToUIColor("#46F2AF")
         btn4.borderWidth = 1
         btn4.setImage(image, forState: .Normal)
         btn4.setImage(image, forState: .Highlighted)
@@ -259,21 +258,36 @@ extension MapVC {
         // Initialize the menu and setup the configuration options.
         menuView.menu.direction = .Up
         menuView.menu.baseSize = CGSizeMake(diameter, diameter)
-        menuView.menu.views = [btn1, btn2, btn3, btn4]
+        menuView.menu.views = [btn1, btn4, btn2, btn3]
         view.layout(menuView).width(diameter).height(diameter).bottom(16).right(5)
     }
 }
 
-//MARK: Tap out of keyboard
-extension MapVC {
-    func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MapVC.dismissKeyboard))
-        view.addGestureRecognizer(tap)
-    }
-    
-    func dismissKeyboard() {
-        view.endEditing(true)
+//MARK: the color method
+extension MapVC{
+    func hexStringToUIColor (hex:String) -> UIColor {
+        var cString:String = hex.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet() as NSCharacterSet).uppercaseString
+        
+        if (cString.hasPrefix("#")) {
+            cString = cString.substringFromIndex(cString.startIndex.advancedBy(1))
+        }
+        
+        if ((cString.characters.count) != 6) {
+            return UIColor.grayColor()
+        }
+        
+        var rgbValue:UInt32 = 0
+        NSScanner(string: cString).scanHexInt(&rgbValue)
+        
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
     }
 }
+
+
 
 

@@ -8,10 +8,20 @@
 
 import Foundation
 import UIKit
+import Material
 
 class SettingsVC: UIViewController{
     
-    @IBAction func backButtonTapped(sender: UIButton) {
+    override func viewDidLoad() {
+        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "Montserrat", size: 24)!]
+    }
+    
+    
+    @IBAction func interestButtonTapped(sender: FlatButton) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func backButtonTapped(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

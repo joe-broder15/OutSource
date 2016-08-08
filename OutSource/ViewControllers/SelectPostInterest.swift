@@ -1,19 +1,20 @@
 //
-//  InterestsVC.swift
+//  SelectPostInterest.swift
 //  OutSource
 //
-//  Created by JoeB on 7/18/16.
+//  Created by JoeB on 8/7/16.
 //  Copyright © 2016 Admin. All rights reserved.
 //
 
-//import Cocoa
+import Foundation
 import UIKit
 import Firebase
 
-class InterestsVC: UITableViewController {
-
+class SelectPostInterestVC: UITableViewController {
+    
     let firebaseHelper = FirebaseHelper()
     var cells = [UITableViewCell]()
+    var selectedCell = String()
     var interests: [FIRDataSnapshot]! = []
     private var _refHandle: FIRDatabaseHandle!
     var ref: FIRDatabaseReference!
@@ -21,24 +22,25 @@ class InterestsVC: UITableViewController {
     @IBOutlet weak var doneButton: UIBarButtonItem!
     
     
-        
+    
     override func viewDidLoad() {
         self.configureDatabase()
         super.viewDidLoad()
-        self.tableView.allowsMultipleSelection = true
         self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "Montserrat", size: 24)!]
         
         self.doneButton.setTitleTextAttributes([NSFontAttributeName : UIFont(name: "Open Sans", size: 20)!], forState: .Normal)
         
-      
+        
     }
     
-    //This lets you select multiple cells
+    //adds check to selection
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = UITableViewCellAccessoryType.Checkmark
+        self.selectedCell = (tableView.cellForRowAtIndexPath(indexPath)?.textLabel?.text)!
+        print(self.selectedCell)
     }
     
-    //This also does multiple selection
+    //removes check at selection
     override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = UITableViewCellAccessoryType.None
     }
@@ -54,13 +56,13 @@ class InterestsVC: UITableViewController {
         let row = indexPath.row
         
         let interest = interests[row].value! as? String
- 
+        
         cell.textLabel!.text = interest
         cell.textLabel!.font = UIFont(name: "Montserrat", size: 24)
         cell.textLabel!.textColor = hexStringToUIColor("#40de96")
         //cell.
         cells.append(cell)
-
+        
         return cell
         
     }
@@ -68,7 +70,6 @@ class InterestsVC: UITableViewController {
     //Gets all the interests of users
     func configureDatabase() {
         ref = FIRDatabase.database().reference()
-        // Listen for new messages in the Firebase database
         _refHandle = self.ref.child("Interests").observeEventType(.ChildAdded, withBlock: { (snapshot) -> Void in
             self.interests.append(snapshot)
             self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: self.interests.count-1, inSection: 0)], withRowAnimation: .Automatic)
@@ -77,20 +78,11 @@ class InterestsVC: UITableViewController {
     
     @IBAction func doneBtnTapped(sender: UIBarButtonItem) {
         
-        firebaseHelper.currentUser { user in
-            
-            var selectedCells = [String]()
-            for cell in self.cells {
-                if cell.selected == true {
-                    selectedCells.append(cell.textLabel!.text!)
-                }
+        for cell in self.cells {
+            if cell.selected == true {
+                self.selectedCell = cell.textLabel!.text!
             }
-            self.firebaseHelper.usersRef.child(user.UID!).child("interests").setValue(selectedCells)
-            self.performSegueWithIdentifier("interestsToMapSegue", sender: self)
-            
         }
-        
-        
     }
     
     func hexStringToUIColor (hex:String) -> UIColor {
@@ -116,7 +108,3 @@ class InterestsVC: UITableViewController {
     }
     
 }
-
-
-
-

@@ -13,27 +13,43 @@ import Firebase
 
 class SignUpVC: UIViewController {
     //Text fields
-    @IBOutlet weak var emailTextField: TextField!
-    @IBOutlet weak var passwordTextField: TextField!
-    @IBOutlet weak var displayNameTextField: TextField!
+    @IBOutlet weak var emailField: TextField!
+    @IBOutlet weak var pwField: TextField!
+    @IBOutlet weak var userNameField: TextField!
     
     let firebaseHelper = FirebaseHelper()
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.emailField.font = UIFont(name: "Open Sans", size: 20)
+        self.emailField.textColor = UIColor.whiteColor()
+        self.emailField.placeholderColor = UIColor.whiteColor()
+        self.emailField.placeholderActiveColor = UIColor.whiteColor()
+        
+        self.userNameField.font = UIFont(name: "Open Sans", size: 20)
+        self.userNameField.textColor = UIColor.whiteColor()
+        self.userNameField.placeholderColor = UIColor.whiteColor()
+        self.userNameField.placeholderActiveColor = UIColor.whiteColor()
+        
+        self.pwField.font = UIFont(name: "Open Sans", size: 20)
+        self.pwField.textColor = UIColor.whiteColor()
+        self.pwField.placeholderColor = UIColor.whiteColor()
+        self.pwField.placeholderActiveColor = UIColor.whiteColor()
+        self.pwField.secureTextEntry = true
     }
     
-    @IBAction func backButtonPressed(sender: RaisedButton) {
+    @IBAction func backButtonPressed(sender: UIButton) {
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    @IBAction func signUpButtonPressed(sender: RaisedButton) {
+    @IBAction func signUpButtonPressed(sender: FlatButton) {
         
-        let email = self.emailTextField.text
-        let userName = self.displayNameTextField.text
-        let password = self.passwordTextField.text
+        let email = self.emailField.text
+        let userName = self.userNameField.text
+        let password = self.pwField.text
         
         //if password is under 6 characters return
         if password!.characters.count < 6 {
@@ -58,7 +74,7 @@ class SignUpVC: UIViewController {
                         let user = FIRAuth.auth()?.currentUser
                         if let user = user {
                             let changeRequest = user.profileChangeRequest()
-                            changeRequest.displayName = self.displayNameTextField.text!
+                            changeRequest.displayName = userName!
                             changeRequest.commitChangesWithCompletion { error in
                                 if error != nil {
                                     print("Profile not updated")
@@ -84,6 +100,17 @@ class SignUpVC: UIViewController {
                 }
             }
         }
+    }
+}
+//MARK: Tap out of keyboard
+extension SignUpVC {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SignUpVC.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
 

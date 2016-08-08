@@ -17,17 +17,31 @@ class LoginVC: UIViewController, TextFieldDelegate {
     
     @IBOutlet weak var emailField: TextField!
     @IBOutlet weak var pwField: TextField!
+    @IBOutlet weak var loginBtn: RaisedButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         emailField.delegate = self
         pwField.delegate = self
+        hideKeyboardWhenTappedAround()
+        
+        self.emailField.font = UIFont(name: "Open Sans", size: 20)
+        self.emailField.textColor = UIColor.whiteColor()
+        self.emailField.placeholderColor = UIColor.whiteColor()
+        self.emailField.placeholderActiveColor = UIColor.whiteColor()
+        
+        self.pwField.font = UIFont(name: "Open Sans", size: 20)
+        self.pwField.textColor = UIColor.whiteColor()
+        self.pwField.placeholderColor = UIColor.whiteColor()
+        self.pwField.placeholderActiveColor = UIColor.whiteColor()
+        self.pwField.secureTextEntry = true
       
         
     }
     @IBAction func loginButtonPressed(sender: RaisedButton) {
         //logs in the user
-        FIRAuth.auth()?.signInWithEmail(emailField.text!, password: emailField.text!) { (user, error) in
+        FIRAuth.auth()?.signInWithEmail(emailField.text!, password: pwField.text!) { (user, error) in
             if error != nil {
                 print(error?.description)
                 return
@@ -39,7 +53,7 @@ class LoginVC: UIViewController, TextFieldDelegate {
     
     //QuickLogin
     @IBAction func quickLogin(sender: FlatButton) {
-        FIRAuth.auth()?.signInWithEmail("test@test.com", password: "1234567") { (user, error) in
+        FIRAuth.auth()?.signInWithEmail("test@test.xyz", password: "1234567") { (user, error) in
             if error != nil {
                 print(error?.description)
                 return
@@ -51,3 +65,14 @@ class LoginVC: UIViewController, TextFieldDelegate {
     
 }
 
+//MARK: Tap out of keyboard
+extension LoginVC {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginVC.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}

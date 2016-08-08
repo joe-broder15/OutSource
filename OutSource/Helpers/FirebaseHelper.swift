@@ -66,7 +66,7 @@ class FirebaseHelper {
                 
             } else {
                 //otherwise we create a post and go to the callback
-                if user.interests!.contains(postVal["interest"]! as! String){
+                if user.interests!.contains(postVal["interest"] as! String){
                     let matchedPost = Post(title: postVal["title"] as? String,
                         description: postVal["description"] as? String,
                         interest: postVal["interest"] as? String,

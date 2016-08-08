@@ -16,14 +16,17 @@ class PostDetailVC: UIViewController {
     let firebaseHelper = FirebaseHelper()
     
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var interestLabel: UILabel!
     @IBOutlet weak var descriptionFeild: UITextView!
     
     override func viewDidLoad() {
-        self.titleLabel.text = post.title
         self.interestLabel.text = post.interest
         self.descriptionFeild.text = post.description
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "Montserrat-Bold", size: 24)!]
+        
+        self.navigationController?.topViewController?.title = post.title
+        
         
         // Download post image
         self.firebaseHelper.storageRef.child(post.imageID!).dataWithMaxSize(1 * 6000 * 6000) { (data, error) -> Void in
@@ -38,7 +41,7 @@ class PostDetailVC: UIViewController {
         }
     }
     
-    @IBAction func cancelButtonTapped(sender: RaisedButton) {
+    @IBAction func cancelButtonTapped(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 }
