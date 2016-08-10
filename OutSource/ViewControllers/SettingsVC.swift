@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Material
+import Firebase
 
 class SettingsVC: UIViewController{
     
@@ -18,10 +19,21 @@ class SettingsVC: UIViewController{
     
     
     @IBAction func interestButtonTapped(sender: FlatButton) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.performSegueWithIdentifier("settingsToInterestsSegue", sender: self)
     }
     
     @IBAction func backButtonTapped(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func signoutTapped(sender: AnyObject) {
+        try! FIRAuth.auth()?.signOut()
+        NSUserDefaults.standardUserDefaults().setBool(false, forKey: "checkUser")
+        NSUserDefaults.standardUserDefaults().setObject(nil, forKey: "userEmail")
+        NSUserDefaults.standardUserDefaults().setObject(nil, forKey: "userPass")
+        self.performSegueWithIdentifier("logoutSegue", sender: self)
+    }
+    
+    @IBAction func cancelToSettings(segue:UIStoryboardSegue) {
     }
 }

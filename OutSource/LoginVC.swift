@@ -22,6 +22,21 @@ class LoginVC: UIViewController, TextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if NSUserDefaults.standardUserDefaults().boolForKey("checkUser") == true {
+            FIRAuth.auth()?.signInWithEmail(NSUserDefaults.standardUserDefaults().objectForKey("userEmail") as! String, password: NSUserDefaults.standardUserDefaults().objectForKey("userPass") as! String) { (user, error) in
+                if error != nil {
+                    print(error?.description)
+                    return
+                } else {
+                    self.performSegueWithIdentifier("signInToMapSegue", sender: self)
+                }
+            }
+        }
+        
+        NSUserDefaults.standardUserDefaults().setObject(nil, forKey: "uid")
+        NSUserDefaults.standardUserDefaults().setBool(false, forKey: "checkUid")
+        
         emailField.delegate = self
         pwField.delegate = self
         hideKeyboardWhenTappedAround()
@@ -36,6 +51,8 @@ class LoginVC: UIViewController, TextFieldDelegate {
         self.pwField.placeholderColor = UIColor.whiteColor()
         self.pwField.placeholderActiveColor = UIColor.whiteColor()
         self.pwField.secureTextEntry = true
+        
+        
       
         
     }
@@ -46,9 +63,14 @@ class LoginVC: UIViewController, TextFieldDelegate {
                 print(error?.description)
                 return
             } else {
+                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "checkUser")
+                NSUserDefaults.standardUserDefaults().setObject(self.emailField.text!, forKey: "userEmail")
+                NSUserDefaults.standardUserDefaults().setObject(self.pwField.text!, forKey: "userPass")
                 self.performSegueWithIdentifier("signInToMapSegue", sender: self)
             }
         }
+        
+        
     }
     
     //QuickLogin

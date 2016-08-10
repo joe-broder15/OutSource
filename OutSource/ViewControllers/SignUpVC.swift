@@ -92,7 +92,12 @@ class SignUpVC: UIViewController {
                             
                         //we add that user object to the database
                         self.firebaseHelper.rootRef.child("Users").child((currentUser?.uid)!).setValue(userData)
+
                         print(userData)
+                        
+                        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "checkUser")
+                        NSUserDefaults.standardUserDefaults().setObject(currentUser?.email, forKey: "userEmail")
+                        NSUserDefaults.standardUserDefaults().setObject(password!, forKey: "userPass")
                             
                         self.performSegueWithIdentifier("signUpToInterestsSegue", sender: self)
                         

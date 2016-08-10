@@ -46,8 +46,11 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
     //Where creating the posts happens
     override func viewDidLoad(){
         super.viewDidLoad()
+    
         prepareMenuView()
         self.map.delegate = self
+        
+        
         
         // set up the location services
         if (CLLocationManager.locationServicesEnabled()){
@@ -96,7 +99,7 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
         let location = locations.last! as CLLocation
         
         let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.31, longitudeDelta: 0.31))
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.11, longitudeDelta: 0.11))
         
         self.map.setRegion(region, animated: true)
         locationManager.stopUpdatingLocation()
