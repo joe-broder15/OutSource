@@ -160,7 +160,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="339" y="399"/>
+            <point key="canvasLocation" x="235" y="399"/>
         </scene>
         <!--Sign UpVC-->
         <scene sceneID="h3I-SJ-zcl">
@@ -292,7 +292,7 @@
                         <outlet property="emailField" destination="MP5-hh-2gt" id="BRd-Iq-gI1"/>
                         <outlet property="pwField" destination="Wec-PX-UPp" id="B0S-Ve-61L"/>
                         <outlet property="userNameField" destination="KKc-D1-thb" id="gar-qv-Pvt"/>
-                        <segue destination="ShX-Ic-OCk" kind="presentation" identifier="signUpToInterestsSegue" id="6ds-xj-vUr"/>
+                        <segue destination="ShX-Ic-OCk" kind="show" identifier="signUpToInterestsSegue" id="dV7-bf-BvA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wjR-nq-7IF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -355,7 +355,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RYU-Gl-syD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2501" y="399"/>
+            <point key="canvasLocation" x="2587" y="399"/>
         </scene>
         <!--Add a Shout!-->
         <scene sceneID="cZk-St-4UA">
@@ -762,7 +762,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7x4-A1-ACZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1689" y="399"/>
+            <point key="canvasLocation" x="1821" y="399"/>
         </scene>
         <!--Select an Interest-->
         <scene sceneID="Afy-Sm-dL8">
@@ -954,7 +954,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JtQ-Kb-u9E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1809" y="2788"/>
+            <point key="canvasLocation" x="1821" y="2788"/>
         </scene>
     </scenes>
     <resources>
@@ -962,6 +962,6 @@
         <image name="plusIcon" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Zc6-QD-XUW"/>
+        <segue reference="gI1-rm-aip"/>
     </inferredMetricsTieBreakers>
 </document>

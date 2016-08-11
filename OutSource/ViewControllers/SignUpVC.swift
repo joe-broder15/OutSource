@@ -88,7 +88,7 @@ class SignUpVC: UIViewController {
                         let currentUser = FIRAuth.auth()?.currentUser
                             
                         //here in the callback we will create the user in code as well
-                        let userData: Dictionary<String, String>  = ["email": (currentUser?.email!)!, "password": password!, "username": userName!]
+                        let userData: Dictionary<String, String>  = ["email": (currentUser?.email!)!, "username": userName!]
                             
                         //we add that user object to the database
                         self.firebaseHelper.rootRef.child("Users").child((currentUser?.uid)!).setValue(userData)
