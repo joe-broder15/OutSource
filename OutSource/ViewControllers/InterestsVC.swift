@@ -86,7 +86,7 @@ class InterestsVC: UITableViewController {
                 }
             }
             self.firebaseHelper.usersRef.child(user.UID!).child("interests").setValue(selectedCells)
-            self.performSegueWithIdentifier("interestsToMapSegue", sender: self)
+            self.performSegueWithIdentifier("interestsToTutorialSegue", sender: self)
             
         }
         
