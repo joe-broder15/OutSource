@@ -253,7 +253,7 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="dividerColor">
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Password"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Password (7+ Characters)"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="dividerActiveColor">
                                         <color key="value" red="0.27450980390000002" green="0.94901960780000005" blue="0.64313725489999995" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
