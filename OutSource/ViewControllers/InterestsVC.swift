@@ -33,16 +33,6 @@ class InterestsVC: UITableViewController {
       
     }
     
-    //This lets you select multiple cells
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = UITableViewCellAccessoryType.Checkmark
-    }
-    
-    //This also does multiple selection
-    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = UITableViewCellAccessoryType.None
-    }
-    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.interests.count
     }

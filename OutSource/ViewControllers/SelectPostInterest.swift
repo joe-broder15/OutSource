@@ -33,17 +33,6 @@ class SelectPostInterestVC: UITableViewController {
         
     }
     
-    //adds check to selection
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = UITableViewCellAccessoryType.Checkmark
-        self.selectedCell = (tableView.cellForRowAtIndexPath(indexPath)?.textLabel?.text)!
-        print(self.selectedCell)
-    }
-    
-    //removes check at selection
-    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = UITableViewCellAccessoryType.None
-    }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.interests.count

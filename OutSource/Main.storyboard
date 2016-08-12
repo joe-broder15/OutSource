@@ -634,15 +634,6 @@
                                     <constraint firstAttribute="width" constant="68" id="oqD-xd-Udt"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="way to controlthe app" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tro-0g-e6f">
-                                <rect key="frame" x="0.0" y="80" width="600" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="eMd-To-amG"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="OpenSansLight-Italic" family="Open Sans" pointSize="20"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9B1-67-DjW">
                                 <rect key="frame" x="186" y="233" width="128" height="21"/>
                                 <constraints>
@@ -685,6 +676,15 @@
                                 <rect key="frame" x="0.0" y="58" width="600" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="rot-gD-X5N"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OpenSansLight-Italic" family="Open Sans" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="way to control the app" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tro-0g-e6f">
+                                <rect key="frame" x="0.0" y="80" width="600" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="eMd-To-amG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="OpenSansLight-Italic" family="Open Sans" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
