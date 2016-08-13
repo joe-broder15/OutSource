@@ -94,20 +94,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TLb-nX-aFr">
-                                <rect key="frame" x="175" y="550" width="251" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Cp9-In-mGl"/>
-                                    <constraint firstAttribute="width" constant="251" id="oIM-PX-ORW"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="OpenSansLight-Italic" family="Open Sans" pointSize="20"/>
-                                <state key="normal" title="No account? Make one now!">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="6OG-ig-VCq" kind="presentation" identifier="loginToSignUpSegue" id="Huu-wC-5G7"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cpO-mF-eUi" customClass="TextField" customModule="Material">
                                 <rect key="frame" x="165" y="313" width="270" height="32"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -159,20 +145,34 @@
                                     <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O5L-Ny-EL1"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TLb-nX-aFr">
+                                <rect key="frame" x="175" y="447" width="251" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ifm-sC-u4F"/>
+                                    <constraint firstAttribute="width" constant="251" id="qea-g9-4aN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OpenSansLight-Italic" family="Open Sans" pointSize="20"/>
+                                <state key="normal" title="No account? Make one now!">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="6OG-ig-VCq" kind="presentation" identifier="loginToSignUpSegue" id="Huu-wC-5G7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.25098039215686274" green="0.87058823529411766" blue="0.58823529411764708" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="5ZH-eW-Hpg" firstAttribute="top" secondItem="Fi4-fD-FcN" secondAttribute="bottom" constant="20" id="5F7-Gy-CIJ"/>
                             <constraint firstItem="cpO-mF-eUi" firstAttribute="leading" secondItem="Mqd-zn-OMp" secondAttribute="leading" id="Cjk-e8-2UN"/>
-                            <constraint firstItem="Mqd-zn-OMp" firstAttribute="centerX" secondItem="TLb-nX-aFr" secondAttribute="centerX" id="DjZ-uX-3PK"/>
+                            <constraint firstItem="TLb-nX-aFr" firstAttribute="centerX" secondItem="Mqd-zn-OMp" secondAttribute="centerX" id="EQR-Wh-au4"/>
                             <constraint firstItem="cpO-mF-eUi" firstAttribute="top" secondItem="5ZH-eW-Hpg" secondAttribute="bottom" constant="30" id="Fd2-PP-JJ3"/>
                             <constraint firstItem="5ZH-eW-Hpg" firstAttribute="leading" secondItem="cpO-mF-eUi" secondAttribute="leading" id="G62-GY-AgY"/>
                             <constraint firstItem="cpO-mF-eUi" firstAttribute="trailing" secondItem="Mqd-zn-OMp" secondAttribute="trailing" id="K8a-6g-sfi"/>
                             <constraint firstItem="Mqd-zn-OMp" firstAttribute="top" secondItem="cpO-mF-eUi" secondAttribute="bottom" constant="37" id="QaR-ZZ-dDn"/>
                             <constraint firstItem="Fi4-fD-FcN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="b8J-81-h5T"/>
-                            <constraint firstAttribute="bottom" secondItem="TLb-nX-aFr" secondAttribute="bottom" constant="20" symbolic="YES" id="hPo-Jc-41E"/>
                             <constraint firstItem="Fi4-fD-FcN" firstAttribute="centerX" secondItem="5ZH-eW-Hpg" secondAttribute="centerX" id="lPn-pw-8Ar"/>
                             <constraint firstItem="Fi4-fD-FcN" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="156" id="qAe-Jo-eko"/>
+                            <constraint firstItem="TLb-nX-aFr" firstAttribute="top" secondItem="Mqd-zn-OMp" secondAttribute="bottom" constant="23" id="xSg-SZ-Xs5"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1230,20 +1230,20 @@
                         <barButtonItem key="leftBarButtonItem" image="arrow" id="3O9-NZ-tyI">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="tEH-Dd-Bsd" kind="unwind" unwindAction="cancelToAddLocation:" id="27U-vE-zu5"/>
+                                <segue destination="tEH-Dd-Bsd" kind="unwind" identifier="cancelToAddLocation" unwindAction="cancelToAddLocation:" id="db9-kG-gyL"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Done" style="plain" id="0EQ-bK-TMs">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="doneBtnTapped:" destination="EJy-6V-QaM" id="Ckz-QN-DjD"/>
-                                <segue destination="tEH-Dd-Bsd" kind="unwind" unwindAction="cancelToAddLocation:" id="Zyj-Nw-gz1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="doneButton" destination="0EQ-bK-TMs" id="fWr-yG-UNJ"/>
                         <outlet property="tableView" destination="fJv-4S-RyD" id="Bpa-Dw-M9K"/>
+                        <segue destination="tEH-Dd-Bsd" kind="unwind" identifier="cancelToAddLocation" unwindAction="cancelToAddLocation:" id="Cck-IS-JiG"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btV-BL-PLh" userLabel="First Responder" sceneMemberID="firstResponder"/>

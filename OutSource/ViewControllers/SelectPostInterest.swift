@@ -70,8 +70,12 @@ class SelectPostInterestVC: UITableViewController {
         for cell in self.cells {
             if cell.selected == true {
                 self.selectedCell = cell.textLabel!.text!
+                print("x")
             }
+            performSegueWithIdentifier("cancelToAddLocation", sender: self)
         }
+        
+        //self.performSegueWithIdentifier("cancelToAddLocation", sender: self)
     }
     
     func hexStringToUIColor (hex:String) -> UIColor {

@@ -20,8 +20,7 @@ class AddLocationVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var addImageButton: FabButton!
     @IBOutlet weak var categoryButton: UIButton!
-    var postInterest: String? = nil
-    
+    var postInterest = ""
     let locationManager = CLLocationManager()
     let firebaseHelper = FirebaseHelper()
     
@@ -42,10 +41,14 @@ class AddLocationVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
     }
     
     override func viewDidAppear(animated: Bool) {
-        if postInterest != nil || postInterest == ""{
-            self.categoryButton.setTitle(postInterest, forState: .Normal)
-        } else {
+        
+        print(self.postInterest)
+        print("z")
+        
+        if self.postInterest == ""{
             self.categoryButton.setTitle("Pick a Category", forState: .Normal)
+        } else {
+            self.categoryButton.setTitle(postInterest, forState: .Normal)
         }
         print(postInterest)
     }
@@ -88,13 +91,14 @@ class AddLocationVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
     
     @IBAction func cancelToAddLocation(segue:UIStoryboardSegue) {
         if segue.sourceViewController.isKindOfClass(SelectPostInterestVC){
-            self.postInterest = (segue.sourceViewController as! SelectPostInterestVC).selectedCell
+            let vc = segue.sourceViewController as! SelectPostInterestVC
+            self.postInterest = vc.selectedCell
         }
     }
     
     @IBAction func addButtonTapped(sender: FlatButton) {
         //Its kinda messy, but it adds new posts
-        if self.postInterest != "" || self.postInterest != nil && self.title != "" || self.title != nil {
+        if self.postInterest != "" && self.title != "" && self.imageView.image != nil {
             
             firebaseHelper.currentUser { user in
                 
