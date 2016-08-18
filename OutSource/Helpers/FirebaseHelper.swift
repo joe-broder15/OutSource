@@ -25,7 +25,7 @@ class FirebaseHelper {
     func currentUser(completionHandler: (User) -> Void){
         
         //create the user
-        let user = User(email: FIRAuth.auth()?.currentUser?.email, userName: FIRAuth.auth()?.currentUser?.displayName, UID: FIRAuth.auth()?.currentUser?.uid, interests: nil)
+        let user = User(email: FIRAuth.auth()?.currentUser?.email, userName: FIRAuth.auth()?.currentUser?.displayName, UID: FIRAuth.auth()?.currentUser?.uid, interests: nil, blocked: nil)
         
         //make an array to become the interest value
         var interestList = [String]?()
@@ -37,9 +37,18 @@ class FirebaseHelper {
             interestList = snapshot.value as? [String]
             user.interests = interestList
             
-            //go into the completion block
-            completionHandler(user)
-            
+            //Get the blocked users
+            self.ref.child("Users").child(user.UID!).child("blocked").observeEventType(FIRDataEventType.Value, withBlock: { (snapshot) -> Void in
+                
+                //Get interests and reset the user's value
+                let blocked = snapshot.value as? Dictionary<String, String>
+                user.blocked = blocked
+                print(blocked)
+                
+                //go into the completion block
+                completionHandler(user)
+                
+            })
         })
     }
     
@@ -51,6 +60,7 @@ class FirebaseHelper {
             //get the value of the snapshot
             let postVal = snapshot.value! as! Dictionary<String, AnyObject>
             
+            print((NSDate().timeIntervalSince1970 as Double) - (postVal["timeStamp"] as! Double))
             //Deletes values if they are old
             if (NSDate().timeIntervalSince1970 as Double) - (postVal["timeStamp"] as! Double)  > 86400{
                 
@@ -59,24 +69,30 @@ class FirebaseHelper {
                         print(error?.description)
                     } else {
                         // File deleted successfully
+                        self.ref.child("Posts").child(postVal["uid"] as! String).removeValue()
                     }
                 }
-                self.ref.child("Posts").child(snapshot.key).removeValue()
-                
                 
             } else {
                 //otherwise we create a post and go to the callback
-                if user.interests!.contains(postVal["interest"] as! String){
+                //if
+                if user.interests!.contains(postVal["interest"] as! String) {
                     let matchedPost = Post(title: postVal["title"] as? String,
                         description: postVal["description"] as? String,
                         interest: postVal["interest"] as? String,
                         longitude: postVal["longitude"] as? String,
                         latitude: postVal["latitude"] as? String,
                         user: postVal["user"] as? String,
-                        imageID: postVal["imageID"] as? String)
+                        imageID: postVal["imageID"] as? String,
+                        uid: postVal["uid"] as? String)
                     
                     //callback
-                    completionHandler(matchedPost)
+                    if user.blocked?[postVal["user"] as! String] != nil {
+                        return
+                    } else {
+                        completionHandler(matchedPost)
+                    }
+                    
                 
                 
                 }

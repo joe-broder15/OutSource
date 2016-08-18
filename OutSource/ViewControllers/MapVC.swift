@@ -38,7 +38,7 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
     var posts = [Post]()
     
     //the current user
-    var user = User(email: nil, userName: nil, UID: nil, interests: nil)
+    var user = User(email: nil, userName: nil, UID: nil, interests: nil, blocked: nil)
     
     //the location contoller
     var locationManager: CLLocationManager!
@@ -50,8 +50,6 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
         prepareMenuView()
         self.map.delegate = self
         
-        
-        
         // set up the location services
         if (CLLocationManager.locationServicesEnabled()){
             locationManager = CLLocationManager()
@@ -62,7 +60,12 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
             
             map.showsUserLocation = true
         }
-
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        print("view loaded")
+        
+        self.map.removeAnnotations(map.annotations)
         
         self.firebaseHelper.currentUser { user in
             

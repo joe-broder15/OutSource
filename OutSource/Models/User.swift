@@ -13,12 +13,15 @@ class User {
     var userName: String?
     var UID: String?
     var interests: [String]?
+    var blocked: Dictionary<String, String>?
     
-    init(email: String?, userName: String?, UID: String?, interests: [String]?) {
+    
+    init(email: String?, userName: String?, UID: String?, interests: [String]?, blocked: Dictionary<String, String>?) {
         self.email = email
         self.userName = userName
         self.UID = UID
         self.interests = interests
+        self.blocked = blocked
     }
     
     

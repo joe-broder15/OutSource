@@ -97,34 +97,44 @@ class AddLocationVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
     }
     
     @IBAction func addButtonTapped(sender: FlatButton) {
-        //Its kinda messy, but it adds new posts
-        if self.postInterest != "" && self.title != "" && self.imageView.image != nil {
+        
+        let alert = UIAlertController(title: "Add Shout", message: "This will add a shout at your current location and thus will allow users to see where youare right now.", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
+        
+        alert.addAction(UIAlertAction(title: "Add Shout", style: .Default, handler: { action in
             
-            firebaseHelper.currentUser { user in
+            //Its kinda messy, but it adds new posts
+            if self.postInterest != "" && self.title != "" && self.imageView.image != nil {
+            
+                self.firebaseHelper.currentUser { user in
                 
-                let imageID = NSUUID().UUIDString
-                let imageStorageRef = self.firebaseHelper.storageRef.child((FIRAuth.auth()?.currentUser?.uid)!).child(imageID)
+                    let imageID = NSUUID().UUIDString
+                    let imageStorageRef = self.firebaseHelper.storageRef.child((FIRAuth.auth()?.currentUser?.uid)!).child(imageID)
             
-                let localImage = UIImageJPEGRepresentation(self.imageView.image!, 0.9)
+                    let localImage = UIImageJPEGRepresentation(self.imageView.image!, 0.9)
             
-                let upload = imageStorageRef.putData(localImage!, metadata: nil) { metadata, error in
-                    if (error != nil) {
+                    let upload = imageStorageRef.putData(localImage!, metadata: nil) { metadata, error in
+                        if (error != nil) {
+                            print("upload error")
+                        } else {
                     
-                    } else {
+                            // Metadata contains file metadata such as size, content-type, and download URL.
+                            let newPost = Post(title: self.titleTextField.text!, description: self.descriptionTextView.text!, interest: self.categoryButton.titleLabel?.text!, longitude: self.locationManager.location!.coordinate.longitude.description, latitude: self.locationManager.location!.coordinate.latitude.description,    user: user.UID!, imageID: "\(user.UID!)/\(imageID)", uid: CFUUIDCreateString(nil, CFUUIDCreate(nil)) as String)
                     
-                        // Metadata contains file metadata such as size, content-type, and download URL.
-                        let newPost = Post(title: self.titleTextField.text!, description: self.descriptionTextView.text!, interest: self.categoryButton.titleLabel?.text!, longitude: self.locationManager.location!.coordinate.longitude.description, latitude: self.locationManager.location!.coordinate.latitude.description, user: user.UID!, imageID: "\(user.UID!)/\(imageID)")
-                    
-                        newPost.uploadPost()
+                            newPost.uploadPost()
+                            print("uploaded")
                     
                     
+                        }
                     }
+                    self.dismissViewControllerAnimated(true, completion: nil)
                 }
-                self.dismissViewControllerAnimated(true, completion: nil)
+            } else {
+                return
             }
-        } else {
-            return
-        }
+        }))
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     @IBAction func cancelButtonTapped(sender: UIButton) {

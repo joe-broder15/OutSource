@@ -23,8 +23,9 @@ class Post {
     let latitude: String?
     let user: String?
     let imageID: String?
+    let uid: String?
     
-    init(title: String?, description: String?, interest: String?, longitude: String?, latitude: String?, user: String?, imageID: String?){
+    init(title: String?, description: String?, interest: String?, longitude: String?, latitude: String?, user: String?, imageID: String?, uid: String?){
         self.longitude = longitude
         self.latitude = latitude
         self.title = title
@@ -32,9 +33,12 @@ class Post {
         self.interest = interest
         self.user = user
         self.imageID = imageID
+        self.uid = uid
     }
     
     func uploadPost(){
+        
+        print("uploading")
         
         let postInfo: Dictionary<String, AnyObject> = ["title": self.title! ,
                                                     "description": self.description!,
@@ -43,9 +47,11 @@ class Post {
                                                     "longitude": self.longitude!,
                                                     "latitude": self.latitude!,
                                                     "timeStamp": NSDate().timeIntervalSince1970 as NSNumber,
-                                                    "imageID": self.imageID!]
+                                                    "imageID": self.imageID!,
+                                                    "uid": self.uid!]
         
-        self.firebaseHelper.postRef.childByAutoId().setValue(postInfo)
+        
+        self.firebaseHelper.postRef.child(self.uid!).setValue(postInfo)
     }
     
 }
