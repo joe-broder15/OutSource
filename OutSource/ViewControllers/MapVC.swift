@@ -194,12 +194,34 @@ extension MapVC {
     
     /// Handles the location button.
     func goToCurrentLocation(){
-        locationManager.startUpdatingLocation()
+        if CLLocationManager.locationServicesEnabled() {
+            switch(CLLocationManager.authorizationStatus()) {
+            case .NotDetermined, .Restricted, .Denied:
+                print("No access")
+            case .AuthorizedAlways, .AuthorizedWhenInUse:
+                print("Access")
+                locationManager.startUpdatingLocation()
+            }
+        } else {
+            print("Location services are not enabled")
+        }
+        
     }
     
     func addLocationBtnTapped() {
         locationManager.stopUpdatingLocation()
-        performSegueWithIdentifier("mapToAddLocationSegue", sender: self)
+        if CLLocationManager.locationServicesEnabled() {
+            switch(CLLocationManager.authorizationStatus()) {
+            case .NotDetermined, .Restricted, .Denied:
+                print("No access")
+            case .AuthorizedAlways, .AuthorizedWhenInUse:
+                print("Access")
+                performSegueWithIdentifier("mapToAddLocationSegue", sender: self)
+            }
+        } else {
+            print("Location services are not enabled")
+        }
+        
     }
     
     func settingsBtnTapped(){

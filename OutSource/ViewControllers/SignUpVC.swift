@@ -58,51 +58,17 @@ class SignUpVC: UIViewController {
         
         //if there is text in all feilds, make a new user
         if password != nil && userName != nil && email != nil {
-            
-            //creates a new user object in auth and database
-            //This is the part where we create the user in authentication
-            FIRAuth.auth()?.createUserWithEmail(email!, password: password!) { (user, error) in
-                    
-                //sign into the user we just created
-                FIRAuth.auth()?.signInWithEmail(email!, password: password!) { (user, error) in
-                        
-                    if error != nil {
-                        return
-                    } else {
-                        
-                        //Update the profile username
-                        let user = FIRAuth.auth()?.currentUser
-                        if let user = user {
-                            let changeRequest = user.profileChangeRequest()
-                            changeRequest.displayName = userName!
-                            changeRequest.commitChangesWithCompletion { error in
-                                if error != nil {
-                                    print("Profile not updated")
-                                } else {
-                                    print("Profile updated")
-                                }
-                            }
-                        }
-                            
-                        //update the username of the current user in auth
-                        let currentUser = FIRAuth.auth()?.currentUser
-                            
-                        //here in the callback we will create the user in code as well
-                        let userData: Dictionary<String, String>  = ["email": (currentUser?.email!)!, "username": userName!, ]
-                            
-                        //we add that user object to the database
-                        self.firebaseHelper.rootRef.child("Users").child((currentUser?.uid)!).setValue(userData)
-
-                        print(userData)
-                        
-                        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "checkUser")
-                        NSUserDefaults.standardUserDefaults().setObject(currentUser?.email, forKey: "userEmail")
-                        NSUserDefaults.standardUserDefaults().setObject(password!, forKey: "userPass")
-                            
-                        self.performSegueWithIdentifier("signUpToInterestsSegue", sender: self)
-                        
-                    }
-                }
+            self.performSegueWithIdentifier("signupToTermsSegue", sender: self)
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let identifier = segue.identifier {
+            if identifier == "signupToTermsSegue" {
+                let vc = segue.destinationViewController as! TermsVC
+                vc.email = self.emailField.text!
+                vc.userName = self.userNameField.text!
+                vc.password = self.pwField.text!
             }
         }
     }

@@ -20,6 +20,7 @@
 		5882DFFC1D56A41800A2A338 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5882DFFB1D56A41800A2A338 /* GoogleService-Info.plist */; };
 		5882DFFE1D5847BB00A2A338 /* SelectPostInterest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5882DFFD1D5847BB00A2A338 /* SelectPostInterest.swift */; };
 		5882E0001D5A972F00A2A338 /* changeInterestsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5882DFFF1D5A972F00A2A338 /* changeInterestsVC.swift */; };
+		588BCD0A1D664DEF00F79270 /* TermsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588BCD091D664DEF00F79270 /* TermsVC.swift */; };
 		58C3F84A1D341A0100C98EF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C3F8491D341A0100C98EF8 /* AppDelegate.swift */; };
 		58C3F8511D341A0100C98EF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58C3F8501D341A0100C98EF8 /* Assets.xcassets */; };
 		58C3F8541D341A0100C98EF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58C3F8521D341A0100C98EF8 /* LaunchScreen.storyboard */; };
@@ -49,6 +50,7 @@
 		5882DFFB1D56A41800A2A338 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5882DFFD1D5847BB00A2A338 /* SelectPostInterest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPostInterest.swift; sourceTree = "<group>"; };
 		5882DFFF1D5A972F00A2A338 /* changeInterestsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = changeInterestsVC.swift; sourceTree = "<group>"; };
+		588BCD091D664DEF00F79270 /* TermsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsVC.swift; sourceTree = "<group>"; };
 		58C3F8461D341A0100C98EF8 /* OutSource.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OutSource.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58C3F8491D341A0100C98EF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58C3F8501D341A0100C98EF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				585BD4BF1D505967003E47F8 /* SettingsVC.swift */,
 				5882DFFD1D5847BB00A2A338 /* SelectPostInterest.swift */,
 				5882DFFF1D5A972F00A2A338 /* changeInterestsVC.swift */,
+				588BCD091D664DEF00F79270 /* TermsVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				585BD4B61D4DC85F003E47F8 /* PostAnnotation.swift in Sources */,
 				58C3F8681D34574600C98EF8 /* MapVC.swift in Sources */,
 				581A71EF1D3EC9F50099BBD8 /* AddLocationVC.swift in Sources */,
+				588BCD0A1D664DEF00F79270 /* TermsVC.swift in Sources */,
 				58DACFF41D3D57450093DE1C /* InterestsVC.swift in Sources */,
 				58DACFF81D3D733B0093DE1C /* FirebaseHelper.swift in Sources */,
 				5882DFFE1D5847BB00A2A338 /* SelectPostInterest.swift in Sources */,
