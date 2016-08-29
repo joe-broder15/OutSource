@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -29,6 +29,7 @@
             <string>Montserrat-Regular</string>
         </mutableArray>
         <mutableArray key="OpenSans-LightItalic.ttf">
+            <string>OpenSansLight-Italic</string>
             <string>OpenSansLight-Italic</string>
             <string>OpenSansLight-Italic</string>
             <string>OpenSansLight-Italic</string>
@@ -166,16 +167,16 @@
                         <color key="backgroundColor" red="0.25098039215686274" green="0.87058823529411766" blue="0.58823529411764708" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="5ZH-eW-Hpg" firstAttribute="top" secondItem="Fi4-fD-FcN" secondAttribute="bottom" constant="20" id="5F7-Gy-CIJ"/>
-                            <constraint firstItem="cpO-mF-eUi" firstAttribute="leading" secondItem="Mqd-zn-OMp" secondAttribute="leading" id="Cjk-e8-2UN"/>
-                            <constraint firstItem="TLb-nX-aFr" firstAttribute="centerX" secondItem="Mqd-zn-OMp" secondAttribute="centerX" id="EQR-Wh-au4"/>
+                            <constraint firstItem="Mqd-zn-OMp" firstAttribute="centerX" secondItem="TLb-nX-aFr" secondAttribute="centerX" id="9uD-m7-0f0"/>
                             <constraint firstItem="cpO-mF-eUi" firstAttribute="top" secondItem="5ZH-eW-Hpg" secondAttribute="bottom" constant="30" id="Fd2-PP-JJ3"/>
                             <constraint firstItem="5ZH-eW-Hpg" firstAttribute="leading" secondItem="cpO-mF-eUi" secondAttribute="leading" id="G62-GY-AgY"/>
-                            <constraint firstItem="cpO-mF-eUi" firstAttribute="trailing" secondItem="Mqd-zn-OMp" secondAttribute="trailing" id="K8a-6g-sfi"/>
-                            <constraint firstItem="Mqd-zn-OMp" firstAttribute="top" secondItem="cpO-mF-eUi" secondAttribute="bottom" constant="37" id="QaR-ZZ-dDn"/>
+                            <constraint firstItem="Mqd-zn-OMp" firstAttribute="leading" secondItem="cpO-mF-eUi" secondAttribute="leading" id="K56-X8-Tfe"/>
+                            <constraint firstItem="TLb-nX-aFr" firstAttribute="top" secondItem="Mqd-zn-OMp" secondAttribute="bottom" constant="23" id="ObK-u2-VaW"/>
                             <constraint firstItem="Fi4-fD-FcN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="b8J-81-h5T"/>
                             <constraint firstItem="Fi4-fD-FcN" firstAttribute="centerX" secondItem="5ZH-eW-Hpg" secondAttribute="centerX" id="lPn-pw-8Ar"/>
                             <constraint firstItem="Fi4-fD-FcN" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="156" id="qAe-Jo-eko"/>
-                            <constraint firstItem="TLb-nX-aFr" firstAttribute="top" secondItem="Mqd-zn-OMp" secondAttribute="bottom" constant="23" id="xSg-SZ-Xs5"/>
+                            <constraint firstItem="Mqd-zn-OMp" firstAttribute="trailing" secondItem="cpO-mF-eUi" secondAttribute="trailing" id="wWs-K0-nl7"/>
+                            <constraint firstItem="Mqd-zn-OMp" firstAttribute="top" secondItem="cpO-mF-eUi" secondAttribute="bottom" constant="37" id="yFn-2v-JWJ"/>
                         </constraints>
                     </view>
                     <connections>
@@ -203,7 +204,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KKc-D1-thb" customClass="TextField" customModule="Material">
-                                <rect key="frame" x="165" y="243" width="270" height="32"/>
+                                <rect key="frame" x="165" y="205" width="270" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="a2g-h6-t46"/>
+                                </constraints>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="OpenSansLight-Italic" family="Open Sans" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -221,7 +225,10 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wec-PX-UPp" customClass="TextField" customModule="Material">
-                                <rect key="frame" x="165" y="305" width="270" height="32"/>
+                                <rect key="frame" x="165" y="267" width="270" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="aHs-BW-hod"/>
+                                </constraints>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="OpenSansLight-Italic" family="Open Sans" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -256,7 +263,10 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MP5-hh-2gt" customClass="TextField" customModule="Material">
-                                <rect key="frame" x="165" y="181" width="270" height="32"/>
+                                <rect key="frame" x="165" y="143" width="270" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="XY2-sI-LDC"/>
+                                </constraints>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="OpenSansLight-Italic" family="Open Sans" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
@@ -273,11 +283,29 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tml-fe-ID1" customClass="FlatButton" customModule="Material">
-                                <rect key="frame" x="165" y="374" width="270" height="40"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x6u-xE-XRm" customClass="TextField" customModule="Material">
+                                <rect key="frame" x="165" y="328" width="270" height="32"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="TZw-qh-cjj"/>
+                                    <constraint firstAttribute="height" constant="32" id="Mcl-8u-sMl"/>
                                 </constraints>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="OpenSansLight-Italic" family="Open Sans" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="dividerColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Confirm Password"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="dividerActiveColor">
+                                        <color key="value" red="0.27450980390000002" green="0.94901960780000005" blue="0.64313725489999995" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderActiveColor">
+                                        <color key="value" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tml-fe-ID1" customClass="FlatButton" customModule="Material">
+                                <rect key="frame" x="165" y="390" width="270" height="42"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="24"/>
                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <size key="titleShadowOffset" width="0.0" height="4"/>
@@ -303,22 +331,25 @@
                         </subviews>
                         <color key="backgroundColor" red="0.25098039215686274" green="0.87058823529411766" blue="0.58823529411764708" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Tml-fe-ID1" firstAttribute="trailing" secondItem="Wec-PX-UPp" secondAttribute="trailing" id="No3-qi-VrO"/>
-                            <constraint firstItem="Tml-fe-ID1" firstAttribute="leading" secondItem="Wec-PX-UPp" secondAttribute="leading" id="Pb0-BW-Wf2"/>
-                            <constraint firstItem="MP5-hh-2gt" firstAttribute="centerX" secondItem="qGL-WU-g6B" secondAttribute="centerX" id="SzB-VP-6m5"/>
-                            <constraint firstItem="Wec-PX-UPp" firstAttribute="top" secondItem="KKc-D1-thb" secondAttribute="bottom" constant="30" id="WiZ-az-GWA"/>
-                            <constraint firstItem="KKc-D1-thb" firstAttribute="top" secondItem="MP5-hh-2gt" secondAttribute="bottom" constant="30" id="bX1-mo-FAd"/>
-                            <constraint firstItem="KKc-D1-thb" firstAttribute="leading" secondItem="Wec-PX-UPp" secondAttribute="leading" id="eAk-8a-0ig"/>
+                            <constraint firstItem="MP5-hh-2gt" firstAttribute="top" secondItem="IYB-o9-sah" secondAttribute="bottom" constant="123" id="0Sf-s8-JML"/>
+                            <constraint firstItem="Tml-fe-ID1" firstAttribute="leading" secondItem="x6u-xE-XRm" secondAttribute="leading" id="1Fw-xz-IsW"/>
+                            <constraint firstItem="Wec-PX-UPp" firstAttribute="leading" secondItem="x6u-xE-XRm" secondAttribute="leading" id="BVL-hW-JWg"/>
+                            <constraint firstItem="KKc-D1-thb" firstAttribute="top" secondItem="MP5-hh-2gt" secondAttribute="bottom" constant="30" id="IF5-JR-sEO"/>
+                            <constraint firstItem="MP5-hh-2gt" firstAttribute="leading" secondItem="KKc-D1-thb" secondAttribute="leading" id="IMB-UT-b4t"/>
+                            <constraint firstItem="x6u-xE-XRm" firstAttribute="top" secondItem="Wec-PX-UPp" secondAttribute="bottom" constant="29" id="OKv-PL-bfU"/>
+                            <constraint firstItem="Tml-fe-ID1" firstAttribute="top" secondItem="x6u-xE-XRm" secondAttribute="bottom" constant="30" id="P7y-w6-FLj"/>
+                            <constraint firstItem="Wec-PX-UPp" firstAttribute="top" secondItem="KKc-D1-thb" secondAttribute="bottom" constant="30" id="Vea-wp-4uo"/>
+                            <constraint firstItem="MP5-hh-2gt" firstAttribute="centerX" secondItem="qGL-WU-g6B" secondAttribute="centerX" id="Yzw-cH-Cgk"/>
                             <constraint firstItem="oTd-1O-Gdm" firstAttribute="top" secondItem="IYB-o9-sah" secondAttribute="bottom" constant="8" id="eZ5-wJ-OHh"/>
-                            <constraint firstItem="MP5-hh-2gt" firstAttribute="leading" secondItem="KKc-D1-thb" secondAttribute="leading" id="jlP-u4-tAl"/>
+                            <constraint firstItem="Tml-fe-ID1" firstAttribute="trailing" secondItem="x6u-xE-XRm" secondAttribute="trailing" id="wVn-6O-JeN"/>
                             <constraint firstItem="oTd-1O-Gdm" firstAttribute="leading" secondItem="qGL-WU-g6B" secondAttribute="leadingMargin" id="y8V-vY-VCD"/>
-                            <constraint firstItem="MP5-hh-2gt" firstAttribute="top" secondItem="IYB-o9-sah" secondAttribute="bottom" constant="161" id="yp7-N5-3UD"/>
-                            <constraint firstItem="Tml-fe-ID1" firstAttribute="top" secondItem="Wec-PX-UPp" secondAttribute="bottom" constant="37" id="zWR-E1-Np7"/>
+                            <constraint firstItem="KKc-D1-thb" firstAttribute="leading" secondItem="Wec-PX-UPp" secondAttribute="leading" id="ymX-8C-8ZN"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="emailField" destination="MP5-hh-2gt" id="BRd-Iq-gI1"/>
                         <outlet property="pwField" destination="Wec-PX-UPp" id="B0S-Ve-61L"/>
+                        <outlet property="pwField2" destination="x6u-xE-XRm" id="yHi-vX-8lA"/>
                         <outlet property="userNameField" destination="KKc-D1-thb" id="gar-qv-Pvt"/>
                         <segue destination="P1D-Qv-qIh" kind="presentation" identifier="signupToTermsSegue" id="ZXr-FR-mBv"/>
                     </connections>
@@ -342,7 +373,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6Yz-hI-LYD">
                                 <rect key="frame" x="35" y="133" width="530" height="252"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">Shout-Out TERMS OF USE
+                                <string key="text">Shout-Out TERMS OF USE
 PLEASE READ THESE TERMS OF USE CAREFULLY BEFORE USING THE SERVICES OFFERED BY Shout-Out LABS. ("Shout-Out"), 
 Acceptance of Terms.
 By registering for and/or using the Service in any manner, including but not limited to visiting or browsing the Site, you agree to all of the terms and conditions contained herein ("Terms of Use"), which also incorporate Shout-Out's Privacy Policy, Shout-Out's Intellectual Property Policy, Shout-Out's Photo Guidelines, Shout-Out's Venue Terms and Conditions, Shout-Out's API License Agreement and all other operating rules, policies and procedures that may be published from time to time on the Site by Shout-Out, each of which is incorporated by reference and each of which may be updated by Shout-Out from time to time without notice to you in accordance with the terms set out under the "Modification of Terms of Use" section below. In addition, some services offered through the Service may be subject to additional terms and conditions specified by Shout-Out from time to time; your use of such services is subject to those additional terms and conditions, which are incorporated into these Terms of Use by this reference. These Terms of Use apply to all users of the Service, including, without limitation, users who are contributors of content, information, and other materials or services on the Site, individual users of the Service, venues that access the Service, and users that have a page on the Service.
@@ -465,7 +496,7 @@ Unless otherwise specified in these Term of Use, all notices under these Terms o
 Solely in respect of users located in the EEA and/or Australia, in respect of these Terms of Use and your use of this Site, Service, Content, User Submissions or Add-to Link, nothing in these Terms of Use shall be deemed to grant any rights or benefits to any person, other than us and you (and our and your respective successors in title or assignees), or entitle any third party to enforce any provision hereof, and we and you agree that we do not intend that any provision of these Terms of Use should be enforceable by a third party by virtue of the Contracts (Rights of Third Parties) Act 1999.
 Language.
 Where Shout-Out has provided you with a translation of the English language version of these Terms of Use, then you agree that the translation is provided for your convenience only and that the English language versions of the Terms will govern your relationship with Shout-Out.
-If there is any contradiction between what the English language version of these Terms of Use says and what a translation says, then the English language version shall take precedence.</mutableString>
+If there is any contradiction between what the English language version of these Terms of Use says and what a translation says, then the English language version shall take precedence.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>

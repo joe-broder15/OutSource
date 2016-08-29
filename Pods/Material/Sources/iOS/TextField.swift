@@ -470,7 +470,6 @@ public class TextField : UITextField {
 		masksToBounds = false
 		borderStyle = .None
 		backgroundColor = nil
-		textColor = MaterialColor.darkText.primary
 		font = RobotoFont.regularWithSize(16)
 		contentScaleFactor = MaterialDevice.scale
 		prepareDivider()
@@ -509,7 +508,7 @@ public class TextField : UITextField {
 				placeholderLabel.frame.origin.x = width - placeholderLabel.frame.width
 			default:break
 			}
-			placeholderLabel.frame.origin.y = -placeholderLabel.frame.size.height
+			placeholderLabel.frame.origin.y = -placeholderLabel.frame.size.height + placeholderVerticalOffset
 			placeholderLabel.textColor = placeholderColor
 		} else {
 			switch textAlignment {

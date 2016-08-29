@@ -11,4 +11,6 @@ target 'OutSource' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod ‘Firebase/Storage’
+
+  pod 'Toast-Swift', '~> 1.3.0'
 end

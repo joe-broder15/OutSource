@@ -10,11 +10,14 @@ import UIKit
 import Material
 import Foundation
 import Firebase
+import Toast_Swift
+
 
 class SignUpVC: UIViewController {
     //Text fields
     @IBOutlet weak var emailField: TextField!
     @IBOutlet weak var pwField: TextField!
+    @IBOutlet weak var pwField2: TextField!
     @IBOutlet weak var userNameField: TextField!
     
     let firebaseHelper = FirebaseHelper()
@@ -38,6 +41,14 @@ class SignUpVC: UIViewController {
         self.pwField.placeholderColor = UIColor.whiteColor()
         self.pwField.placeholderActiveColor = UIColor.whiteColor()
         self.pwField.secureTextEntry = true
+        
+        self.pwField2.font = UIFont(name: "Open Sans", size: 20)
+        self.pwField2.textColor = UIColor.whiteColor()
+        self.pwField2.placeholderColor = UIColor.whiteColor()
+        self.pwField2.placeholderActiveColor = UIColor.whiteColor()
+        self.pwField2.secureTextEntry = true
+        
+        hideKeyboardWhenTappedAround()
     }
     
     @IBAction func backButtonPressed(sender: UIButton) {
@@ -50,14 +61,22 @@ class SignUpVC: UIViewController {
         let email = self.emailField.text
         let userName = self.userNameField.text
         let password = self.pwField.text
+        let password2 = self.pwField2.text
         
         //if password is under 6 characters return
-        if password!.characters.count < 6 {
-            return
-        }
-        
-        //if there is text in all feilds, make a new user
-        if password != nil && userName != nil && email != nil {
+        if email == "" {
+            self.view.makeToast("Email is empty", duration: 1.0, position: .Bottom)
+        } else if userName == "" {
+            self.view.makeToast("Username is empty", duration: 1.0, position: .Bottom)
+        } else if password == "" {
+            self.view.makeToast("Password is empty", duration: 1.0, position: .Bottom)
+        } else if password2 == "" {
+            self.view.makeToast("Must verify Password", duration: 3.0, position: .Bottom)
+        } else if password != password2 {
+            self.view.makeToast("Passwords do not match", duration: 1.0, position: .Bottom)
+        } else if password!.characters.count < 6 {
+            self.view.makeToast("Password is under 7 characters", duration: 1.0, position: .Bottom)
+        } else {
             self.performSegueWithIdentifier("signupToTermsSegue", sender: self)
         }
     }
