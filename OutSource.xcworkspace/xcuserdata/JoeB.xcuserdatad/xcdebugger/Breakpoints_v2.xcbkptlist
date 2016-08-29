@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OutSource/ViewControllers/TermsVC.swift"
-            timestampString = "493426742.203108"
+            timestampString = "494135567.907241"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "acceptButtonTapped(_:)"
             landmarkType = "5">
          </BreakpointContent>

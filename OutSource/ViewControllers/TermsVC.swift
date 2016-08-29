@@ -17,14 +17,13 @@ class TermsVC: UIViewController {
     var userName: String = ""
     var fireBaseHelper = FirebaseHelper()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print(self.email)
     }
     
     @IBAction func acceptButtonTapped(sender: AnyObject) {
-        
-        
         
         //creates a new user object in auth and database
         //This is the part where we create the user in authentication

@@ -328,14 +328,23 @@
                                     <action selector="signUpButtonPressed:" destination="6OG-ig-VCq" eventType="touchUpInside" id="Kg2-Cv-oEx"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4nZ-ad-HuF">
+                                <rect key="frame" x="256" y="481" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="P1D-Qv-qIh" kind="show" id="GEa-z1-0Ad"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.25098039215686274" green="0.87058823529411766" blue="0.58823529411764708" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="MP5-hh-2gt" firstAttribute="top" secondItem="IYB-o9-sah" secondAttribute="bottom" constant="123" id="0Sf-s8-JML"/>
                             <constraint firstItem="Tml-fe-ID1" firstAttribute="leading" secondItem="x6u-xE-XRm" secondAttribute="leading" id="1Fw-xz-IsW"/>
+                            <constraint firstItem="4nZ-ad-HuF" firstAttribute="leading" secondItem="qGL-WU-g6B" secondAttribute="leading" constant="256" id="1UK-2g-Grz"/>
                             <constraint firstItem="Wec-PX-UPp" firstAttribute="leading" secondItem="x6u-xE-XRm" secondAttribute="leading" id="BVL-hW-JWg"/>
                             <constraint firstItem="KKc-D1-thb" firstAttribute="top" secondItem="MP5-hh-2gt" secondAttribute="bottom" constant="30" id="IF5-JR-sEO"/>
                             <constraint firstItem="MP5-hh-2gt" firstAttribute="leading" secondItem="KKc-D1-thb" secondAttribute="leading" id="IMB-UT-b4t"/>
+                            <constraint firstItem="4nZ-ad-HuF" firstAttribute="top" secondItem="Tml-fe-ID1" secondAttribute="bottom" constant="49" id="NaP-tl-hfk"/>
                             <constraint firstItem="x6u-xE-XRm" firstAttribute="top" secondItem="Wec-PX-UPp" secondAttribute="bottom" constant="29" id="OKv-PL-bfU"/>
                             <constraint firstItem="Tml-fe-ID1" firstAttribute="top" secondItem="x6u-xE-XRm" secondAttribute="bottom" constant="30" id="P7y-w6-FLj"/>
                             <constraint firstItem="Wec-PX-UPp" firstAttribute="top" secondItem="KKc-D1-thb" secondAttribute="bottom" constant="30" id="Vea-wp-4uo"/>
@@ -1707,5 +1716,6 @@ If there is any contradiction between what the English language version of these
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Zc6-QD-XUW"/>
+        <segue reference="ZXr-FR-mBv"/>
     </inferredMetricsTieBreakers>
 </document>
