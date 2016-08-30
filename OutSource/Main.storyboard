@@ -22,7 +22,6 @@
             <string>Montserrat-Bold</string>
             <string>Montserrat-Bold</string>
             <string>Montserrat-Bold</string>
-            <string>Montserrat-Bold</string>
         </mutableArray>
         <mutableArray key="Montserrat-Regular.ttf">
             <string>Montserrat-Regular</string>
@@ -328,23 +327,14 @@
                                     <action selector="signUpButtonPressed:" destination="6OG-ig-VCq" eventType="touchUpInside" id="Kg2-Cv-oEx"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4nZ-ad-HuF">
-                                <rect key="frame" x="256" y="481" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="P1D-Qv-qIh" kind="show" id="GEa-z1-0Ad"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.25098039215686274" green="0.87058823529411766" blue="0.58823529411764708" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="MP5-hh-2gt" firstAttribute="top" secondItem="IYB-o9-sah" secondAttribute="bottom" constant="123" id="0Sf-s8-JML"/>
                             <constraint firstItem="Tml-fe-ID1" firstAttribute="leading" secondItem="x6u-xE-XRm" secondAttribute="leading" id="1Fw-xz-IsW"/>
-                            <constraint firstItem="4nZ-ad-HuF" firstAttribute="leading" secondItem="qGL-WU-g6B" secondAttribute="leading" constant="256" id="1UK-2g-Grz"/>
                             <constraint firstItem="Wec-PX-UPp" firstAttribute="leading" secondItem="x6u-xE-XRm" secondAttribute="leading" id="BVL-hW-JWg"/>
                             <constraint firstItem="KKc-D1-thb" firstAttribute="top" secondItem="MP5-hh-2gt" secondAttribute="bottom" constant="30" id="IF5-JR-sEO"/>
                             <constraint firstItem="MP5-hh-2gt" firstAttribute="leading" secondItem="KKc-D1-thb" secondAttribute="leading" id="IMB-UT-b4t"/>
-                            <constraint firstItem="4nZ-ad-HuF" firstAttribute="top" secondItem="Tml-fe-ID1" secondAttribute="bottom" constant="49" id="NaP-tl-hfk"/>
                             <constraint firstItem="x6u-xE-XRm" firstAttribute="top" secondItem="Wec-PX-UPp" secondAttribute="bottom" constant="29" id="OKv-PL-bfU"/>
                             <constraint firstItem="Tml-fe-ID1" firstAttribute="top" secondItem="x6u-xE-XRm" secondAttribute="bottom" constant="30" id="P7y-w6-FLj"/>
                             <constraint firstItem="Wec-PX-UPp" firstAttribute="top" secondItem="KKc-D1-thb" secondAttribute="bottom" constant="30" id="Vea-wp-4uo"/>
@@ -675,9 +665,9 @@ If there is any contradiction between what the English language version of these
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G5L-wJ-pYd" customClass="FlatButton" customModule="Material">
-                                <rect key="frame" x="165" y="508" width="270" height="42"/>
+                                <rect key="frame" x="165" y="538" width="270" height="42"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="270" id="6xW-oP-3fQ"/>
+                                    <constraint firstAttribute="width" constant="270" id="ORv-Rq-fpn"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="24"/>
                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -707,19 +697,19 @@ If there is any contradiction between what the English language version of these
                             <constraint firstItem="lSD-KP-2Rl" firstAttribute="top" secondItem="RMt-TW-136" secondAttribute="bottom" constant="42" id="1lH-Di-S3o"/>
                             <constraint firstItem="RMt-TW-136" firstAttribute="top" secondItem="jv7-V3-ccz" secondAttribute="bottom" constant="3" id="4gL-SE-Pyc"/>
                             <constraint firstItem="uFL-bB-zku" firstAttribute="top" secondItem="lSD-KP-2Rl" secondAttribute="bottom" constant="7" id="55U-Se-8sE"/>
-                            <constraint firstItem="xA8-Wb-VZ6" firstAttribute="centerX" secondItem="G5L-wJ-pYd" secondAttribute="centerX" id="84P-mR-Y5U"/>
                             <constraint firstItem="SHT-I0-dGz" firstAttribute="top" secondItem="NOU-Xw-rIj" secondAttribute="bottom" constant="67" id="AnY-IN-b5D"/>
                             <constraint firstItem="sbg-99-1LU" firstAttribute="top" secondItem="gMT-gQ-wcl" secondAttribute="bottom" constant="8" symbolic="YES" id="DDk-tc-pJ2"/>
                             <constraint firstItem="hg1-te-9al" firstAttribute="top" secondItem="GLj-D9-8A8" secondAttribute="bottom" constant="7" id="Dx4-cI-oNH"/>
                             <constraint firstItem="lSD-KP-2Rl" firstAttribute="trailing" secondItem="uFL-bB-zku" secondAttribute="trailing" id="E52-pb-GRq"/>
                             <constraint firstItem="hg1-te-9al" firstAttribute="trailing" secondItem="gMT-gQ-wcl" secondAttribute="trailing" id="JYX-vs-pp5"/>
-                            <constraint firstItem="G5L-wJ-pYd" firstAttribute="top" secondItem="xA8-Wb-VZ6" secondAttribute="bottom" constant="28" id="QgJ-Rz-dj7"/>
+                            <constraint firstAttribute="bottom" secondItem="G5L-wJ-pYd" secondAttribute="bottom" constant="20" symbolic="YES" id="QNv-B3-B3a"/>
                             <constraint firstItem="sbg-99-1LU" firstAttribute="trailing" secondItem="xA8-Wb-VZ6" secondAttribute="trailing" id="TYa-Un-iEq"/>
                             <constraint firstItem="uFL-bB-zku" firstAttribute="leading" secondItem="GLj-D9-8A8" secondAttribute="leading" id="VWd-f5-8q9"/>
                             <constraint firstItem="jv7-V3-ccz" firstAttribute="leading" secondItem="RMt-TW-136" secondAttribute="leading" id="Vr2-0A-lFw"/>
                             <constraint firstItem="hg1-te-9al" firstAttribute="leading" secondItem="gMT-gQ-wcl" secondAttribute="leading" id="WNg-Gi-QsU"/>
                             <constraint firstItem="RMt-TW-136" firstAttribute="trailing" secondItem="lSD-KP-2Rl" secondAttribute="trailing" id="Wrc-vr-Z56"/>
                             <constraint firstItem="GLj-D9-8A8" firstAttribute="top" secondItem="uFL-bB-zku" secondAttribute="bottom" constant="7" id="Xgu-ec-2iu"/>
+                            <constraint firstItem="G5L-wJ-pYd" firstAttribute="centerX" secondItem="xA8-Wb-VZ6" secondAttribute="centerX" id="ZRY-Et-dWx"/>
                             <constraint firstItem="jv7-V3-ccz" firstAttribute="top" secondItem="SHT-I0-dGz" secondAttribute="bottom" constant="8" symbolic="YES" id="aPb-JY-OCq"/>
                             <constraint firstItem="sbg-99-1LU" firstAttribute="leading" secondItem="xA8-Wb-VZ6" secondAttribute="leading" id="ab0-eR-sZW"/>
                             <constraint firstItem="lSD-KP-2Rl" firstAttribute="leading" secondItem="uFL-bB-zku" secondAttribute="leading" id="cI5-Dh-HpR"/>
@@ -797,10 +787,19 @@ If there is any contradiction between what the English language version of these
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WWr-nY-4da" customClass="FlatButton" customModule="Material">
-                                <rect key="frame" x="165" y="528" width="270" height="42"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="will expand when tapped" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hpF-pH-7tk">
+                                <rect key="frame" x="0.0" y="165" width="600" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="270" id="NEO-e0-8J0"/>
+                                    <constraint firstAttribute="height" constant="21" id="3HE-W5-UeE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OpenSansLight-Italic" family="Open Sans" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WWr-nY-4da" customClass="FlatButton" customModule="Material">
+                                <rect key="frame" x="165" y="538" width="270" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="G1l-fN-vtA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="24"/>
                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -823,22 +822,13 @@ If there is any contradiction between what the English language version of these
                                     <segue destination="qQJ-Ct-C46" kind="show" id="DiL-nI-OfV"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="will expand when tapped" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hpF-pH-7tk">
-                                <rect key="frame" x="0.0" y="165" width="600" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="3HE-W5-UeE"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="OpenSansLight-Italic" family="Open Sans" pointSize="20"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.25098039220000001" green="0.87058823529999996" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="WWr-nY-4da" firstAttribute="centerX" secondItem="O6a-Hc-gIr" secondAttribute="centerX" id="6U1-5R-u7n"/>
                             <constraint firstItem="Uht-e2-3au" firstAttribute="trailing" secondItem="hpF-pH-7tk" secondAttribute="trailing" id="GjK-aW-3zk"/>
-                            <constraint firstItem="chz-FJ-cdY" firstAttribute="top" secondItem="WWr-nY-4da" secondAttribute="bottom" constant="30" id="Iww-gT-w9H"/>
-                            <constraint firstItem="WWr-nY-4da" firstAttribute="centerX" secondItem="Z5a-dG-7qJ" secondAttribute="centerX" id="JGE-hE-HEX"/>
                             <constraint firstItem="hpF-pH-7tk" firstAttribute="top" secondItem="Uht-e2-3au" secondAttribute="bottom" constant="8" symbolic="YES" id="JVu-8A-Vx9"/>
+                            <constraint firstItem="WWr-nY-4da" firstAttribute="centerX" secondItem="Z5a-dG-7qJ" secondAttribute="centerX" id="KsE-ny-fBg"/>
                             <constraint firstItem="0OF-0k-Rmh" firstAttribute="top" secondItem="EGq-9z-3vb" secondAttribute="bottom" constant="87" id="OI1-OD-d1A"/>
                             <constraint firstAttribute="trailingMargin" secondItem="u9F-Jg-c3J" secondAttribute="trailing" constant="-18" id="Q8G-wH-Os9"/>
                             <constraint firstItem="0OF-0k-Rmh" firstAttribute="leading" secondItem="Z5a-dG-7qJ" secondAttribute="leading" id="TpM-fe-8iK"/>
@@ -849,7 +839,7 @@ If there is any contradiction between what the English language version of these
                             <constraint firstItem="Uht-e2-3au" firstAttribute="top" secondItem="0OF-0k-Rmh" secondAttribute="bottom" constant="8" symbolic="YES" id="dTT-4k-Gs1"/>
                             <constraint firstItem="Uht-e2-3au" firstAttribute="leading" secondItem="hpF-pH-7tk" secondAttribute="leading" id="fNz-Tr-2Ro"/>
                             <constraint firstItem="u9F-Jg-c3J" firstAttribute="leading" secondItem="OA2-KW-bsR" secondAttribute="leading" id="fye-cK-JfZ"/>
-                            <constraint firstItem="O6a-Hc-gIr" firstAttribute="centerX" secondItem="WWr-nY-4da" secondAttribute="centerX" id="gfY-pe-LZS"/>
+                            <constraint firstAttribute="bottom" secondItem="WWr-nY-4da" secondAttribute="bottom" constant="20" symbolic="YES" id="h82-G9-X8C"/>
                             <constraint firstItem="0OF-0k-Rmh" firstAttribute="leading" secondItem="Uht-e2-3au" secondAttribute="leading" id="lA3-Zo-fqf"/>
                             <constraint firstItem="u9F-Jg-c3J" firstAttribute="leading" secondItem="Z5a-dG-7qJ" secondAttribute="leadingMargin" constant="-22" id="qi5-yM-ZNT"/>
                             <constraint firstItem="u9F-Jg-c3J" firstAttribute="trailing" secondItem="OA2-KW-bsR" secondAttribute="trailing" id="qwV-gj-pKF"/>
@@ -876,12 +866,12 @@ If there is any contradiction between what the English language version of these
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLo-3L-w0J" customClass="FlatButton" customModule="Material">
                                 <rect key="frame" x="165" y="528" width="270" height="42"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="270" id="Nce-OW-4ud"/>
+                                    <constraint firstAttribute="width" constant="270" id="Hpj-xJ-2iD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="24"/>
                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <size key="titleShadowOffset" width="0.0" height="4"/>
-                                <state key="normal" title="Next">
+                                <state key="normal" title="Get Started">
                                     <color key="titleColor" red="0.2274509804" green="0.85882352939999995" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -896,21 +886,21 @@ If there is any contradiction between what the English language version of these
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="cgg-h6-AYi" kind="show" id="VOS-r0-IkU"/>
+                                    <segue destination="b40-p3-lzi" kind="show" id="HLS-cm-Vfb"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuImage" translatesAutoresizingMaskIntoConstraints="NO" id="muA-n0-Ohh">
                                 <rect key="frame" x="367" y="210" width="68" height="286"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="286" id="mOP-j5-q1B"/>
-                                    <constraint firstAttribute="width" constant="68" id="oqD-xd-Udt"/>
+                                    <constraint firstAttribute="height" constant="286" id="lYA-E8-CjJ"/>
+                                    <constraint firstAttribute="width" constant="68" id="tur-p8-7VS"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9B1-67-DjW">
                                 <rect key="frame" x="186" y="233" width="128" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="128" id="MY9-wT-Ox6"/>
-                                    <constraint firstAttribute="height" constant="21" id="vCt-YX-b61"/>
+                                    <constraint firstAttribute="height" constant="21" id="0ag-Zj-KWJ"/>
+                                    <constraint firstAttribute="width" constant="128" id="ngW-VE-9Yz"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="OpenSansLight-Italic" family="Open Sans" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -919,7 +909,7 @@ If there is any contradiction between what the English language version of these
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a shout " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mbf-KX-21h">
                                 <rect key="frame" x="180" y="299" width="140" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="Z6E-QF-SxN"/>
+                                    <constraint firstAttribute="height" constant="21" id="iPK-fW-Jdk"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="OpenSansLight-Italic" family="Open Sans" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -928,8 +918,8 @@ If there is any contradiction between what the English language version of these
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zoom to your location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xi0-GX-edv">
                                 <rect key="frame" x="145" y="372" width="214" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="214" id="Leb-tc-x6e"/>
-                                    <constraint firstAttribute="height" constant="20" id="cDw-DX-b2a"/>
+                                    <constraint firstAttribute="width" constant="214" id="rPf-Yi-O5g"/>
+                                    <constraint firstAttribute="height" constant="20" id="y31-rI-k88"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="OpenSansLight-Italic" family="Open Sans" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -938,7 +928,7 @@ If there is any contradiction between what the English language version of these
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expand / Collapse" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="36V-01-kUQ">
                                 <rect key="frame" x="158" y="445" width="185" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="D5m-Q8-Vl5"/>
+                                    <constraint firstAttribute="height" constant="21" id="Cbc-7O-OpO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="OpenSansLight-Italic" family="Open Sans" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -965,26 +955,26 @@ If there is any contradiction between what the English language version of these
                         </subviews>
                         <color key="backgroundColor" red="0.25098039220000001" green="0.87058823529999996" blue="0.58823529409999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="MLo-3L-w0J" firstAttribute="centerX" secondItem="Mk6-Xw-LJ2" secondAttribute="centerX" id="2XV-tz-gxT"/>
-                            <constraint firstItem="MLo-3L-w0J" firstAttribute="top" secondItem="muA-n0-Ohh" secondAttribute="bottom" constant="32" id="I7D-Cb-C9a"/>
+                            <constraint firstItem="muA-n0-Ohh" firstAttribute="trailing" secondItem="MLo-3L-w0J" secondAttribute="trailing" id="03w-fn-e5K"/>
+                            <constraint firstItem="muA-n0-Ohh" firstAttribute="leading" secondItem="9B1-67-DjW" secondAttribute="trailing" constant="53" id="12M-ZI-KzZ"/>
+                            <constraint firstItem="MLo-3L-w0J" firstAttribute="centerX" secondItem="Mk6-Xw-LJ2" secondAttribute="centerX" id="4AX-bg-vKe"/>
+                            <constraint firstItem="muA-n0-Ohh" firstAttribute="leading" secondItem="mbf-KX-21h" secondAttribute="trailing" constant="47" id="DtN-ya-q8M"/>
                             <constraint firstItem="4ZK-Do-mNi" firstAttribute="leading" secondItem="tro-0g-e6f" secondAttribute="leading" id="LXU-61-81D"/>
                             <constraint firstItem="4ZK-Do-mNi" firstAttribute="top" secondItem="B4i-sd-0JQ" secondAttribute="bottom" constant="38" id="M9w-WW-xfa"/>
-                            <constraint firstItem="Xi0-GX-edv" firstAttribute="top" secondItem="mbf-KX-21h" secondAttribute="bottom" constant="52" id="Pcd-qP-uRz"/>
-                            <constraint firstItem="MLo-3L-w0J" firstAttribute="top" secondItem="36V-01-kUQ" secondAttribute="bottom" constant="62" id="R7N-gL-3VW"/>
+                            <constraint firstItem="MLo-3L-w0J" firstAttribute="centerX" secondItem="tro-0g-e6f" secondAttribute="centerX" id="Osb-vy-neN"/>
+                            <constraint firstItem="mbf-KX-21h" firstAttribute="centerX" secondItem="36V-01-kUQ" secondAttribute="centerX" id="P6s-uY-LIx"/>
+                            <constraint firstItem="MLo-3L-w0J" firstAttribute="top" secondItem="36V-01-kUQ" secondAttribute="bottom" constant="62" id="Qcm-Wl-7Zs"/>
                             <constraint firstItem="tro-0g-e6f" firstAttribute="top" secondItem="4ZK-Do-mNi" secondAttribute="bottom" constant="1" id="RHh-gU-vhu"/>
-                            <constraint firstItem="muA-n0-Ohh" firstAttribute="leading" secondItem="36V-01-kUQ" secondAttribute="trailing" constant="24" id="TSH-n2-pjw"/>
-                            <constraint firstItem="tro-0g-e6f" firstAttribute="centerX" secondItem="MLo-3L-w0J" secondAttribute="centerX" id="XRu-Gu-Y2g"/>
-                            <constraint firstItem="mbf-KX-21h" firstAttribute="top" secondItem="9B1-67-DjW" secondAttribute="bottom" constant="45" id="aCp-km-gum"/>
-                            <constraint firstItem="muA-n0-Ohh" firstAttribute="leading" secondItem="Xi0-GX-edv" secondAttribute="trailing" constant="8" symbolic="YES" id="cvC-if-N01"/>
-                            <constraint firstItem="mbf-KX-21h" firstAttribute="centerX" secondItem="36V-01-kUQ" secondAttribute="centerX" id="fQ9-9A-6QP"/>
-                            <constraint firstItem="9B1-67-DjW" firstAttribute="centerX" secondItem="mbf-KX-21h" secondAttribute="centerX" id="iFf-Sb-qqu"/>
+                            <constraint firstItem="muA-n0-Ohh" firstAttribute="leading" secondItem="Xi0-GX-edv" secondAttribute="trailing" constant="8" symbolic="YES" id="Vu6-R9-upV"/>
+                            <constraint firstItem="rG7-Gx-QwR" firstAttribute="top" secondItem="MLo-3L-w0J" secondAttribute="bottom" constant="30" id="dnS-yO-wbg"/>
+                            <constraint firstItem="Xi0-GX-edv" firstAttribute="top" secondItem="mbf-KX-21h" secondAttribute="bottom" constant="52" id="gW9-tT-sRF"/>
+                            <constraint firstItem="muA-n0-Ohh" firstAttribute="leading" secondItem="36V-01-kUQ" secondAttribute="trailing" constant="24" id="hwY-BC-Zrk"/>
+                            <constraint firstItem="mbf-KX-21h" firstAttribute="top" secondItem="9B1-67-DjW" secondAttribute="bottom" constant="45" id="i9H-5b-a5w"/>
+                            <constraint firstItem="MLo-3L-w0J" firstAttribute="top" secondItem="muA-n0-Ohh" secondAttribute="bottom" constant="32" id="kNj-1B-kQx"/>
                             <constraint firstItem="4ZK-Do-mNi" firstAttribute="trailing" secondItem="tro-0g-e6f" secondAttribute="trailing" id="mMH-ar-Ndv"/>
-                            <constraint firstItem="muA-n0-Ohh" firstAttribute="trailing" secondItem="MLo-3L-w0J" secondAttribute="trailing" id="ng7-Ne-Ib4"/>
-                            <constraint firstItem="rG7-Gx-QwR" firstAttribute="top" secondItem="MLo-3L-w0J" secondAttribute="bottom" constant="30" id="qye-3f-LAu"/>
-                            <constraint firstItem="36V-01-kUQ" firstAttribute="top" secondItem="Xi0-GX-edv" secondAttribute="bottom" constant="53" id="rLB-TS-9Dq"/>
-                            <constraint firstItem="muA-n0-Ohh" firstAttribute="leading" secondItem="mbf-KX-21h" secondAttribute="trailing" constant="47" id="xr7-eD-DTO"/>
+                            <constraint firstItem="36V-01-kUQ" firstAttribute="top" secondItem="Xi0-GX-edv" secondAttribute="bottom" constant="53" id="qol-fT-oe3"/>
+                            <constraint firstItem="9B1-67-DjW" firstAttribute="centerX" secondItem="mbf-KX-21h" secondAttribute="centerX" id="sqT-rP-qul"/>
                             <constraint firstItem="4ZK-Do-mNi" firstAttribute="leading" secondItem="Mk6-Xw-LJ2" secondAttribute="leading" id="ye0-MS-h4B"/>
-                            <constraint firstItem="muA-n0-Ohh" firstAttribute="leading" secondItem="9B1-67-DjW" secondAttribute="trailing" constant="53" id="yto-4v-5Vb"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -1649,73 +1639,14 @@ If there is any contradiction between what the English language version of these
             </objects>
             <point key="canvasLocation" x="2229" y="4268"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="fLk-vV-Kja">
-            <objects>
-                <viewController storyboardIdentifier="Tutorial4" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cgg-h6-AYi" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="7bc-5z-FI5"/>
-                        <viewControllerLayoutGuide type="bottom" id="oGg-d5-WXV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="9Uh-Ob-kUj">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_0204" translatesAutoresizingMaskIntoConstraints="NO" id="buq-If-RdH">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KIj-Bj-Xsx" customClass="FlatButton" customModule="Material">
-                                <rect key="frame" x="165" y="528" width="270" height="42"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="270" id="Q4O-LT-vVw"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="24"/>
-                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <size key="titleShadowOffset" width="0.0" height="4"/>
-                                <state key="normal" title="Get Started!">
-                                    <color key="titleColor" red="0.2274509804" green="0.85882352939999995" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="pulseColor">
-                                        <color key="value" red="0.2274509804" green="0.85882352939999995" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="b40-p3-lzi" kind="show" id="NEy-Cp-lrI"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="oGg-d5-WXV" firstAttribute="top" secondItem="KIj-Bj-Xsx" secondAttribute="bottom" constant="30" id="A1g-cU-dpD"/>
-                            <constraint firstItem="KIj-Bj-Xsx" firstAttribute="centerX" secondItem="buq-If-RdH" secondAttribute="centerX" id="abb-ej-KWW"/>
-                            <constraint firstItem="buq-If-RdH" firstAttribute="leading" secondItem="9Uh-Ob-kUj" secondAttribute="leading" id="co5-k2-Rpm"/>
-                            <constraint firstItem="buq-If-RdH" firstAttribute="top" secondItem="9Uh-Ob-kUj" secondAttribute="top" id="hux-cD-QKb"/>
-                            <constraint firstItem="oGg-d5-WXV" firstAttribute="top" secondItem="buq-If-RdH" secondAttribute="bottom" id="klO-6b-rPV"/>
-                            <constraint firstAttribute="trailing" secondItem="buq-If-RdH" secondAttribute="trailing" id="qjk-si-cnS"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6bZ-kJ-bi3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3399" y="1968"/>
-        </scene>
     </scenes>
     <resources>
-        <image name="IMG_0204" width="750" height="1334"/>
         <image name="arrow" width="32" height="32"/>
         <image name="menuImage" width="101" height="442"/>
         <image name="plusIcon" width="32" height="32"/>
         <image name="shoutImage" width="298" height="180"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Zc6-QD-XUW"/>
-        <segue reference="ZXr-FR-mBv"/>
+        <segue reference="HLS-cm-Vfb"/>
     </inferredMetricsTieBreakers>
 </document>

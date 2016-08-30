@@ -9,6 +9,7 @@
 import Foundation
 import Firebase
 import UIKit
+import SwiftSpinner
 
 class TermsVC: UIViewController {
     
@@ -25,6 +26,7 @@ class TermsVC: UIViewController {
     
     @IBAction func acceptButtonTapped(sender: AnyObject) {
         
+        SwiftSpinner.show("Creating account")
         //creates a new user object in auth and database
         //This is the part where we create the user in authentication
         FIRAuth.auth()?.createUserWithEmail(email, password: password) { (user, error) in
