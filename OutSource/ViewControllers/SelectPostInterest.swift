@@ -86,10 +86,14 @@ class SelectPostInterestVC: UITableViewController {
             if cell.selected == true {
                 self.selectedCell = cell.textLabel!.text!
                 self.performSegueWithIdentifier("interestsToTimeSegue", sender: self)
+                return
             }
         }
         
-        //self.performSegueWithIdentifier("cancelToAddLocation", sender: self)
+        if selectedCell == ""{
+            self.view.makeToast("Please select an interest", duration: 1.0, position: .Center)
+        }
+        
     }
     
     @IBAction func cancelToPostInterests(segue: UIStoryboardSegue) {}

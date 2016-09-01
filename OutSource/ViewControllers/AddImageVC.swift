@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Toast_Swift
 import Material
 
 class AddImageVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -63,7 +64,12 @@ class AddImageVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     }
     
     @IBAction func nextButtonTapped(sender: AnyObject) {
-        self.performSegueWithIdentifier("imageToTextSegue", sender: self)
+        if self.imageView.image == nil {
+            self.view.makeToast("Take a photo", duration: 1.0, position: .Center)
+        } else {
+            self.performSegueWithIdentifier("imageToTextSegue", sender: self)
+        }
+        
         
     }
     

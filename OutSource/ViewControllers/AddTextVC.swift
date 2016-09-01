@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Material
+import Toast_Swift
 
 class AddTextVC: UIViewController {
     
@@ -32,7 +33,14 @@ class AddTextVC: UIViewController {
     @IBAction func cancelToText(segue: UIStoryboardSegue) {}
     
     @IBAction func nextButtonTapped(sender: AnyObject) {
-        self.performSegueWithIdentifier("textToInterestsSegue", sender: self)
+        if titleTextField.text == "" || titleTextField.text == nil {
+            self.view.makeToast("Please set a title", duration: 1.0, position: .Center)
+        } else if descriptionTextFeild.text == "" || descriptionTextFeild.text == nil {
+            self.view.makeToast("Please set a description", duration: 1.0, position: .Center)
+        } else {
+            self.performSegueWithIdentifier("textToInterestsSegue", sender: self)
+        }
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

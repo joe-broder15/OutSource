@@ -84,7 +84,7 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
                         pin.coordinate = CLLocationCoordinate2D(latitude: Double(post.latitude!)!, longitude: Double(post.longitude!)!)
                         pin.title = post.title!
                         pin.subtitle = post.interest!
-                        
+                        print(post.timeLimit)
                         
                         dispatch_async(dispatch_get_main_queue(), {
                             //self.map.viewForAnnotation(pin)
@@ -116,7 +116,7 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
     
     //Handles the button on the map annotations
     func displayPostDetail(sender: PostButton){
-        print(sender.post?.title!)
+        print(sender)
         performSegueWithIdentifier("mapToDetailSegue", sender: sender)
         
     }
@@ -124,19 +124,18 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
     @IBAction func cancelToMap(segue: UIStoryboardSegue) {}
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let identifier = segue.identifier {
-            if identifier == "mapToDetailSegue" {
-                
-                let navController = segue.destinationViewController as! UINavigationController
-                let detailController = navController.topViewController as! PostDetailVC
-                detailController.post = (sender as!  PostButton).post!
-            }
+        if segue.identifier == "mapToDetailSegue" {
+            print("X")
+            let navController = segue.destinationViewController as! UINavigationController
+            let detailController = navController.topViewController as! PostDetailVC
+            detailController.post = (sender as!  PostButton).post!
         }
     }
-    
-    
-    
 }
+    
+    
+    
+
 
 //Stuff for buttons and annotations
 extension MapVC: MKMapViewDelegate {

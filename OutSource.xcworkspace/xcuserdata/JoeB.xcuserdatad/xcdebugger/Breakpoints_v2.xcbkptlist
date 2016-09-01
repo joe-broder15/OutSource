@@ -26,107 +26,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OutSource/ViewControllers/MapVC.swift"
-            timestampString = "494449441.121149"
+            timestampString = "494454082.280709"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "displayPostDetail(_:)"
             landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OutSource/ViewControllers/PostDetailVC.swift"
-            timestampString = "494452587.25752"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OutSource/ViewControllers/PostDetailVC.swift"
-            timestampString = "494452588.978171"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "PostDetailVC"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "OutSource.PostDetailVC.post.getter : OutSource.Post"
-                  moduleName = "OutSource"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/admin/Development/IOS/OutSource/OutSource/ViewControllers/PostDetailVC.swift"
-                  timestampString = "494453657.897148"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "29"
-                  endingLineNumber = "29"
-                  offsetFromSymbolStart = "48">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "OutSource.PostDetailVC.post.setter : OutSource.Post"
-                  moduleName = "OutSource"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/admin/Development/IOS/OutSource/OutSource/ViewControllers/PostDetailVC.swift"
-                  timestampString = "494453657.897284"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "29"
-                  endingLineNumber = "29"
-                  offsetFromSymbolStart = "80">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "OutSource.PostDetailVC.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; OutSource.PostDetailVC"
-                  moduleName = "OutSource"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/admin/Development/IOS/OutSource/OutSource/ViewControllers/PostDetailVC.swift"
-                  timestampString = "494453657.897395"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "29"
-                  endingLineNumber = "29"
-                  offsetFromSymbolStart = "172">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "OutSource.PostDetailVC.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;OutSource.PostDetailVC&gt;"
-                  moduleName = "OutSource"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/admin/Development/IOS/OutSource/OutSource/ViewControllers/PostDetailVC.swift"
-                  timestampString = "494453657.897503"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "29"
-                  endingLineNumber = "29"
-                  offsetFromSymbolStart = "132">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
