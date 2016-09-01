@@ -122,3 +122,13 @@ class SelectPostInterestVC: UITableViewController {
     }
     
 }
+
+extension SelectPostInterestVC {
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
+    }
+}

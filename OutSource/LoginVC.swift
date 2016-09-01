@@ -100,3 +100,13 @@ extension LoginVC {
         view.endEditing(true)
     }
 }
+
+extension LoginVC {
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
+    }
+}

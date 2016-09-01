@@ -106,3 +106,13 @@ class changeInterestsVC: UITableViewController {
     }
     
 }
+
+extension changeInterestsVC {
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
+    }
+}

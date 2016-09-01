@@ -86,3 +86,13 @@ extension AddTextVC {
         view.endEditing(true)
     }
 }
+
+extension AddTextVC {
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
+    }
+}

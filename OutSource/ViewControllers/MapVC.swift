@@ -317,6 +317,15 @@ extension MapVC{
     }
 }
 
-
+//MARK: rotation method
+extension MapVC {
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
+    }
+}
 
 

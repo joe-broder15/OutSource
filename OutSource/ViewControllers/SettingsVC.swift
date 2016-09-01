@@ -37,3 +37,13 @@ class SettingsVC: UIViewController{
     @IBAction func cancelToSettings(segue:UIStoryboardSegue) {
     }
 }
+
+extension SettingsVC {
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
+    }
+}
