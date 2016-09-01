@@ -19,9 +19,11 @@ class SelectPostInterestVC: UITableViewController {
     private var _refHandle: FIRDatabaseHandle!
     var ref: FIRDatabaseReference!
     
+    var image = UIImage()
+    var titleText = String()
+    var descriptionText = String()
+    
     @IBOutlet weak var doneButton: UIBarButtonItem!
-    
-    
     
     override func viewDidLoad() {
         self.configureDatabase()
@@ -30,10 +32,12 @@ class SelectPostInterestVC: UITableViewController {
         
         self.doneButton.setTitleTextAttributes([NSFontAttributeName : UIFont(name: "Open Sans", size: 20)!], forState: .Normal)
         
-        
+        print(self.image)
+        print(self.titleText)
+        print(self.descriptionText)
     }
     
-    
+    //Defines number of rows
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.interests.count
     }
@@ -65,19 +69,32 @@ class SelectPostInterestVC: UITableViewController {
         })
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "interestsToTimeSegue" {
+            let vc = segue.destinationViewController as! AddPostTimeVC
+            vc.postTitle = titleText
+            vc.postImage = image
+            vc.postDescription = descriptionText
+            vc.postInterest = selectedCell
+            
+        }
+    }
+    
     @IBAction func doneBtnTapped(sender: UIBarButtonItem) {
         
         for cell in self.cells {
             if cell.selected == true {
                 self.selectedCell = cell.textLabel!.text!
-                print("x")
+                self.performSegueWithIdentifier("interestsToTimeSegue", sender: self)
             }
-            performSegueWithIdentifier("cancelToAddLocation", sender: self)
         }
         
         //self.performSegueWithIdentifier("cancelToAddLocation", sender: self)
     }
     
+    @IBAction func cancelToPostInterests(segue: UIStoryboardSegue) {}
+    
+    //Hex Color Function
     func hexStringToUIColor (hex:String) -> UIColor {
         var cString:String = hex.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet() as NSCharacterSet).uppercaseString
         

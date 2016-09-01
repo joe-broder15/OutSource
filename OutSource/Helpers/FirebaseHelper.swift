@@ -59,10 +59,9 @@ class FirebaseHelper {
             
             //get the value of the snapshot
             let postVal = snapshot.value! as! Dictionary<String, AnyObject>
-            
-            print((NSDate().timeIntervalSince1970 as Double) - (postVal["timeStamp"] as! Double))
+    
             //Deletes values if they are old
-            if (NSDate().timeIntervalSince1970 as Double) - (postVal["timeStamp"] as! Double)  > 86400{
+            if (NSDate().timeIntervalSince1970 as Double) > (postVal["timeLimit"] as! Double) {
                 
                 self.storageRef.child((postVal["imageID"] as? String)!).deleteWithCompletion { (error) -> Void in
                     if (error != nil) {
@@ -83,7 +82,8 @@ class FirebaseHelper {
                         latitude: postVal["latitude"] as? String,
                         user: postVal["user"] as? String,
                         imageID: postVal["imageID"] as? String,
-                        uid: postVal["uid"] as? String)
+                        uid: postVal["uid"] as? String,
+                        timeLimit: postVal["timeLimit"] as? Double)
                     
                     //callback
                     if user.blocked?[postVal["user"] as! String] != nil {

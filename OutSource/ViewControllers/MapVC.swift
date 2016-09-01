@@ -114,12 +114,14 @@ class MapVC: UIViewController, CLLocationManagerDelegate {
         print("ERROR")
     }
     
-    //Handles the button on the annotations
+    //Handles the button on the map annotations
     func displayPostDetail(sender: PostButton){
         print(sender.post?.title!)
         performSegueWithIdentifier("mapToDetailSegue", sender: sender)
         
     }
+    
+    @IBAction func cancelToMap(segue: UIStoryboardSegue) {}
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let identifier = segue.identifier {
@@ -216,7 +218,7 @@ extension MapVC {
                 print("No access")
             case .AuthorizedAlways, .AuthorizedWhenInUse:
                 print("Access")
-                performSegueWithIdentifier("mapToAddLocationSegue", sender: self)
+                performSegueWithIdentifier("mapToAddShoutSegue", sender: self)
             }
         } else {
             print("Location services are not enabled")

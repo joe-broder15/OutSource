@@ -26,7 +26,7 @@ class PostDetailVC: UIViewController {
     // Height for FlatButtons.
     let height: CGFloat = 36
     
-    var post = Post(title: nil, description: nil, interest: nil, longitude: nil, latitude: nil, user: nil, imageID: nil, uid: nil)
+    var post = Post(title: nil, description: nil, interest: nil, longitude: nil, latitude: nil, user: nil, imageID: nil, uid: nil, timeLimit: nil)
     
     let firebaseHelper = FirebaseHelper()
     

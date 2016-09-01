@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		581A71EF1D3EC9F50099BBD8 /* AddLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581A71EE1D3EC9F50099BBD8 /* AddLocationVC.swift */; };
 		585BD4B61D4DC85F003E47F8 /* PostAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585BD4B51D4DC85F003E47F8 /* PostAnnotation.swift */; };
 		585BD4BA1D4FD10C003E47F8 /* PostButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585BD4B91D4FD10C003E47F8 /* PostButton.swift */; };
 		585BD4BC1D4FF4A8003E47F8 /* PostDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585BD4BB1D4FF4A8003E47F8 /* PostDetailVC.swift */; };
@@ -17,6 +16,9 @@
 		585BD4CD1D5295F2003E47F8 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 585BD4C91D5295F2003E47F8 /* Montserrat-Regular.ttf */; };
 		585BD4CE1D5295F2003E47F8 /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 585BD4CA1D5295F2003E47F8 /* OpenSans-LightItalic.ttf */; };
 		585BD4CF1D5295F2003E47F8 /* Pacifico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 585BD4CB1D5295F2003E47F8 /* Pacifico.ttf */; };
+		586F204C1D7639D100A18908 /* AddImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586F204B1D7639D100A18908 /* AddImageVC.swift */; };
+		586F204E1D766DD600A18908 /* AddTextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586F204D1D766DD600A18908 /* AddTextVC.swift */; };
+		586F20501D77696900A18908 /* AddPostTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586F204F1D77696900A18908 /* AddPostTimeVC.swift */; };
 		5882DFFC1D56A41800A2A338 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5882DFFB1D56A41800A2A338 /* GoogleService-Info.plist */; };
 		5882DFFE1D5847BB00A2A338 /* SelectPostInterest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5882DFFD1D5847BB00A2A338 /* SelectPostInterest.swift */; };
 		5882E0001D5A972F00A2A338 /* changeInterestsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5882DFFF1D5A972F00A2A338 /* changeInterestsVC.swift */; };
@@ -37,7 +39,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		581A71EE1D3EC9F50099BBD8 /* AddLocationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLocationVC.swift; sourceTree = "<group>"; };
 		585BD4B51D4DC85F003E47F8 /* PostAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostAnnotation.swift; sourceTree = "<group>"; };
 		585BD4B91D4FD10C003E47F8 /* PostButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostButton.swift; sourceTree = "<group>"; };
 		585BD4BB1D4FF4A8003E47F8 /* PostDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailVC.swift; sourceTree = "<group>"; };
@@ -47,6 +48,9 @@
 		585BD4C91D5295F2003E47F8 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		585BD4CA1D5295F2003E47F8 /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
 		585BD4CB1D5295F2003E47F8 /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pacifico.ttf; sourceTree = "<group>"; };
+		586F204B1D7639D100A18908 /* AddImageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddImageVC.swift; sourceTree = "<group>"; };
+		586F204D1D766DD600A18908 /* AddTextVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTextVC.swift; sourceTree = "<group>"; };
+		586F204F1D77696900A18908 /* AddPostTimeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPostTimeVC.swift; sourceTree = "<group>"; };
 		5882DFFB1D56A41800A2A338 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5882DFFD1D5847BB00A2A338 /* SelectPostInterest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPostInterest.swift; sourceTree = "<group>"; };
 		5882DFFF1D5A972F00A2A338 /* changeInterestsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = changeInterestsVC.swift; sourceTree = "<group>"; };
@@ -157,12 +161,14 @@
 				58C3F8631D34530600C98EF8 /* SignUpVC.swift */,
 				58C3F8671D34574600C98EF8 /* MapVC.swift */,
 				58DACFF31D3D57450093DE1C /* InterestsVC.swift */,
-				581A71EE1D3EC9F50099BBD8 /* AddLocationVC.swift */,
 				585BD4BB1D4FF4A8003E47F8 /* PostDetailVC.swift */,
 				585BD4BF1D505967003E47F8 /* SettingsVC.swift */,
 				5882DFFD1D5847BB00A2A338 /* SelectPostInterest.swift */,
 				5882DFFF1D5A972F00A2A338 /* changeInterestsVC.swift */,
 				588BCD091D664DEF00F79270 /* TermsVC.swift */,
+				586F204B1D7639D100A18908 /* AddImageVC.swift */,
+				586F204D1D766DD600A18908 /* AddTextVC.swift */,
+				586F204F1D77696900A18908 /* AddPostTimeVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -326,7 +332,6 @@
 				58DACFF61D3D5AFB0093DE1C /* TableViewCell.swift in Sources */,
 				585BD4B61D4DC85F003E47F8 /* PostAnnotation.swift in Sources */,
 				58C3F8681D34574600C98EF8 /* MapVC.swift in Sources */,
-				581A71EF1D3EC9F50099BBD8 /* AddLocationVC.swift in Sources */,
 				588BCD0A1D664DEF00F79270 /* TermsVC.swift in Sources */,
 				58DACFF41D3D57450093DE1C /* InterestsVC.swift in Sources */,
 				58DACFF81D3D733B0093DE1C /* FirebaseHelper.swift in Sources */,
@@ -334,7 +339,10 @@
 				58C3F8641D34530600C98EF8 /* SignUpVC.swift in Sources */,
 				58DACFEE1D3D4CBB0093DE1C /* Post.swift in Sources */,
 				585BD4BC1D4FF4A8003E47F8 /* PostDetailVC.swift in Sources */,
+				586F204C1D7639D100A18908 /* AddImageVC.swift in Sources */,
 				58C3F86A1D35585F00C98EF8 /* User.swift in Sources */,
+				586F204E1D766DD600A18908 /* AddTextVC.swift in Sources */,
+				586F20501D77696900A18908 /* AddPostTimeVC.swift in Sources */,
 				58C3F84A1D341A0100C98EF8 /* AppDelegate.swift in Sources */,
 				585BD4C01D505967003E47F8 /* SettingsVC.swift in Sources */,
 			);

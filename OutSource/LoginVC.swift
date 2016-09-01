@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Material
 import Firebase
+import SwiftSpinner
 
 class LoginVC: UIViewController, TextFieldDelegate {
     
@@ -24,6 +25,7 @@ class LoginVC: UIViewController, TextFieldDelegate {
         super.viewDidLoad()
         
         if NSUserDefaults.standardUserDefaults().boolForKey("checkUser") == true {
+            
             FIRAuth.auth()?.signInWithEmail(NSUserDefaults.standardUserDefaults().objectForKey("userEmail") as! String, password: NSUserDefaults.standardUserDefaults().objectForKey("userPass") as! String) { (user, error) in
                 if error != nil {
                     print(error?.description)
