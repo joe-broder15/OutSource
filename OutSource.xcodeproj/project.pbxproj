@@ -19,6 +19,7 @@
 		586F204C1D7639D100A18908 /* AddImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586F204B1D7639D100A18908 /* AddImageVC.swift */; };
 		586F204E1D766DD600A18908 /* AddTextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586F204D1D766DD600A18908 /* AddTextVC.swift */; };
 		586F20501D77696900A18908 /* AddPostTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586F204F1D77696900A18908 /* AddPostTimeVC.swift */; };
+		586F20521D7933F000A18908 /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586F20511D7933F000A18908 /* ResetPasswordVC.swift */; };
 		5882DFFC1D56A41800A2A338 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5882DFFB1D56A41800A2A338 /* GoogleService-Info.plist */; };
 		5882DFFE1D5847BB00A2A338 /* SelectPostInterest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5882DFFD1D5847BB00A2A338 /* SelectPostInterest.swift */; };
 		5882E0001D5A972F00A2A338 /* changeInterestsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5882DFFF1D5A972F00A2A338 /* changeInterestsVC.swift */; };
@@ -51,6 +52,7 @@
 		586F204B1D7639D100A18908 /* AddImageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddImageVC.swift; sourceTree = "<group>"; };
 		586F204D1D766DD600A18908 /* AddTextVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTextVC.swift; sourceTree = "<group>"; };
 		586F204F1D77696900A18908 /* AddPostTimeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPostTimeVC.swift; sourceTree = "<group>"; };
+		586F20511D7933F000A18908 /* ResetPasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
 		5882DFFB1D56A41800A2A338 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5882DFFD1D5847BB00A2A338 /* SelectPostInterest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPostInterest.swift; sourceTree = "<group>"; };
 		5882DFFF1D5A972F00A2A338 /* changeInterestsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = changeInterestsVC.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				586F204B1D7639D100A18908 /* AddImageVC.swift */,
 				586F204D1D766DD600A18908 /* AddTextVC.swift */,
 				586F204F1D77696900A18908 /* AddPostTimeVC.swift */,
+				586F20511D7933F000A18908 /* ResetPasswordVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				58DACFF81D3D733B0093DE1C /* FirebaseHelper.swift in Sources */,
 				5882DFFE1D5847BB00A2A338 /* SelectPostInterest.swift in Sources */,
 				58C3F8641D34530600C98EF8 /* SignUpVC.swift in Sources */,
+				586F20521D7933F000A18908 /* ResetPasswordVC.swift in Sources */,
 				58DACFEE1D3D4CBB0093DE1C /* Post.swift in Sources */,
 				585BD4BC1D4FF4A8003E47F8 /* PostDetailVC.swift in Sources */,
 				586F204C1D7639D100A18908 /* AddImageVC.swift in Sources */,
